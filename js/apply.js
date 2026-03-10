@@ -10,7 +10,7 @@
   // ====================================================
   // CONFIGURATION — Replace with your deployed Apps Script URL
   // ====================================================
-  var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzqvi0vIzcC_QbCqzN1_N6kkXb1fbzX6yVEa2Puh5NzmY8h8Iid_zCOD0CQxf-puWhm/exec';
+  var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyAGohOTYu96rDRWgylkdlCL0clrjcBmlAzEhROw-N_S5PVkpnB-GyPSihKRgIINWSt/exec';
 
   // Auto-fill signature date
   var sigDate = document.getElementById('signatureDate');
