@@ -255,6 +255,45 @@ export const faq: FaqItem[] = [
 ];
 
 // ============================================================
+// About Page Content
+// ============================================================
+
+export interface AboutContent {
+  mission: string;
+  story: string;
+  values: { title: string; description: string }[];
+}
+
+export const aboutContent: AboutContent = {
+  mission:
+    "Blu Manor provides safe, structured, and affordable transitional housing for individuals reentering the community. We believe everyone deserves a second chance and a stable foundation to rebuild their lives.",
+  story:
+    "Founded in the Tampa Bay area, Blu Manor was created to fill a critical gap in transitional housing for individuals with criminal backgrounds. Traditional housing options often close their doors to those who need support the most. We opened ours. Our properties offer more than just a roof — they provide structure, accountability, and a community of people working toward the same goal: a fresh start.",
+  values: [
+    {
+      title: "Second Chances",
+      description:
+        "Everyone deserves the opportunity to rebuild. We welcome individuals that other housing providers turn away.",
+    },
+    {
+      title: "Structure & Accountability",
+      description:
+        "Our program combines stable housing with clear expectations — employment, supervision compliance, and mutual respect.",
+    },
+    {
+      title: "Community Support",
+      description:
+        "Living alongside others on the same journey creates natural accountability and encouragement.",
+    },
+    {
+      title: "Dignity & Respect",
+      description:
+        "Every resident is treated with the dignity they deserve, regardless of their past.",
+    },
+  ],
+};
+
+// ============================================================
 // Stats (Trust Bar)
 // ============================================================
 
