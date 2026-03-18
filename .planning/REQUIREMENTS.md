@@ -73,37 +73,37 @@ Requirements for initial release. Each maps to roadmap phases.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SCAF-01 | TBD | Pending |
-| SCAF-02 | TBD | Pending |
-| SCAF-03 | TBD | Pending |
-| SCAF-04 | TBD | Pending |
-| SCAF-05 | TBD | Pending |
-| CMS-01 | TBD | Pending |
-| CMS-02 | TBD | Pending |
-| CMS-03 | TBD | Pending |
-| CMS-04 | TBD | Pending |
-| PAGE-01 | TBD | Pending |
-| PAGE-02 | TBD | Pending |
-| PAGE-03 | TBD | Pending |
-| PAGE-04 | TBD | Pending |
-| PAGE-05 | TBD | Pending |
-| PAGE-06 | TBD | Pending |
-| PAGE-07 | TBD | Pending |
-| PAGE-08 | TBD | Pending |
-| SEO-01 | TBD | Pending |
-| SEO-02 | TBD | Pending |
-| SEO-03 | TBD | Pending |
-| SEO-04 | TBD | Pending |
-| SEO-05 | TBD | Pending |
-| DEP-01 | TBD | Pending |
-| DEP-02 | TBD | Pending |
-| DEP-03 | TBD | Pending |
+| SCAF-01 | Phase 1 | Pending |
+| SCAF-02 | Phase 1 | Pending |
+| SCAF-03 | Phase 1 | Pending |
+| SCAF-04 | Phase 1 | Pending |
+| SCAF-05 | Phase 1 | Pending |
+| CMS-01 | Phase 2 | Pending |
+| CMS-02 | Phase 2 | Pending |
+| CMS-03 | Phase 2 | Pending |
+| CMS-04 | Phase 2 | Pending |
+| PAGE-01 | Phase 3 | Pending |
+| PAGE-02 | Phase 3 | Pending |
+| PAGE-03 | Phase 3 | Pending |
+| PAGE-04 | Phase 3 | Pending |
+| PAGE-05 | Phase 3 | Pending |
+| PAGE-06 | Phase 3 | Pending |
+| PAGE-07 | Phase 3 | Pending |
+| PAGE-08 | Phase 3 | Pending |
+| SEO-01 | Phase 4 | Pending |
+| SEO-02 | Phase 4 | Pending |
+| SEO-03 | Phase 4 | Pending |
+| SEO-04 | Phase 4 | Pending |
+| SEO-05 | Phase 4 | Pending |
+| DEP-01 | Phase 4 | Pending |
+| DEP-02 | Phase 4 | Pending |
+| DEP-03 | Phase 4 | Pending |
 
 **Coverage:**
 - v1 requirements: 25 total
-- Mapped to phases: 0
-- Unmapped: 25
+- Mapped to phases: 25
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-17*
-*Last updated: 2026-03-17 after initial definition*
+*Last updated: 2026-03-17 — traceability updated after roadmap creation*
