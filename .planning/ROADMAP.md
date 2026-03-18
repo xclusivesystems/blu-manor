@@ -52,8 +52,8 @@ Plans:
 - [ ] 02-02: Studio route group, ISR revalidation webhook, and data fetching layer
 
 ### Phase 3: Pages
-**Goal**: All eight pages are fully built, styled to the design system, and pulling live content from Sanity with constants.ts fallback — both resident and partner audiences can complete their full journey
-**Depends on**: Phase 2
+**Goal**: All eight pages are fully built, styled to the design system, pulling content from constants.ts — both resident and partner audiences can complete their full journey
+**Depends on**: Phase 1
 **Requirements**: PAGE-01, PAGE-02, PAGE-03, PAGE-04, PAGE-05, PAGE-06, PAGE-07, PAGE-08
 **Success Criteria** (what must be TRUE):
   1. A prospective resident can navigate from Home through Housing to Apply, complete the intake form, and receive confirmation that it was submitted to Google Sheets
@@ -61,13 +61,13 @@ Plans:
   3. All eight pages render correctly on a 375px mobile screen with no horizontal scroll
   4. The Apply form validates all required fields and rejects submission with a visible error if any are blank
   5. Framer Motion scroll animations play on sections across all pages without layout shift
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 03-01: Home and About pages
-- [ ] 03-02: Housing and Program pages
-- [ ] 03-03: Partners and Resources pages
-- [ ] 03-04: Contact and Apply pages (including Google Sheets form integration)
+- [ ] 03-01-PLAN.md — Home page (hero, services, timeline, housing preview, stats, testimonials, CTA) and About page (mission, story, values, stats)
+- [ ] 03-02-PLAN.md — Housing page (listing cards, amenities, eligibility) and Program page (services, rules, timeline, FAQ preview)
+- [ ] 03-03-PLAN.md — Partners page (referral process, partner phone CTA) and Resources page (FAQ accordion)
+- [ ] 03-04-PLAN.md — Contact page (audience cards, Google Maps) and Apply page (form with Google Sheets submission) plus MobileCtaBar
 
 ### Phase 4: Ship
 **Goal**: The site is live at blumanor.org with GA4 tracking active, JSON-LD structured data indexed, sitemap submitted, and all production env vars confirmed
