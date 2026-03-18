@@ -3,6 +3,7 @@ import { Libre_Baskerville, Source_Sans_3 } from "next/font/google";
 import "../globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import MobileCtaBar from "@/components/layout/MobileCtaBar";
 
 const libreBaskerville = Libre_Baskerville({
   variable: "--font-libre",
@@ -33,8 +34,9 @@ export default function SiteLayout({
         className={`${libreBaskerville.variable} ${sourceSans3.variable} antialiased`}
       >
         <Header />
-        <main className="min-h-screen pt-[72px]">{children}</main>
+        <main className="min-h-screen pt-[72px] pb-20 md:pb-0">{children}</main>
         <Footer />
+        <MobileCtaBar />
       </body>
     </html>
   );
