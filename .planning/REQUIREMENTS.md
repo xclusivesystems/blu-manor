@@ -10,7 +10,7 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Scaffold
 
 - [x] **SCAF-01**: Next.js App Router project with TypeScript, Tailwind 4, `@theme inline` dark theme tokens from design system
-- [ ] **SCAF-02**: Shared layout with Header (nav + mobile menu) and Footer
+- [x] **SCAF-02**: Shared layout with Header (nav + mobile menu) and Footer
 - [x] **SCAF-03**: AnimatedSection component (Framer Motion scroll reveals)
 - [x] **SCAF-04**: Reusable UI primitives (Button, Card, SectionHeader)
 - [x] **SCAF-05**: `lib/constants.ts` with all site content (siteConfig, navLinks, services, housing, team, testimonials, FAQ, stats)
@@ -74,7 +74,7 @@ Requirements for initial release. Each maps to roadmap phases.
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | SCAF-01 | Phase 1 | Complete |
-| SCAF-02 | Phase 1 | Pending |
+| SCAF-02 | Phase 1 | Complete |
 | SCAF-03 | Phase 1 | Complete |
 | SCAF-04 | Phase 1 | Complete |
 | SCAF-05 | Phase 1 | Complete |
