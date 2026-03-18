@@ -32,7 +32,7 @@ export default function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-6">
-          {navLinks.map((link) => (
+          {navLinks.filter((link) => link.href !== "/apply").map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -67,7 +67,7 @@ export default function Header() {
         )}
       >
         <nav className="flex flex-col px-4 pb-4 border-t border-border">
-          {navLinks.map((link) => (
+          {navLinks.filter((link) => link.href !== "/apply").map((link) => (
             <Link
               key={link.href}
               href={link.href}

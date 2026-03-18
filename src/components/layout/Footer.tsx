@@ -51,12 +51,6 @@ export default function Footer() {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="/apply"
-                className="text-sm text-muted hover:text-primary transition-[color] duration-200"
-              >
-                Apply
-              </Link>
             </nav>
           </div>
 
