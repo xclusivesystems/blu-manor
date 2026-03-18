@@ -29,12 +29,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. AnimatedSection scroll reveals trigger correctly in the browser
   4. Button, Card, and SectionHeader components render with correct design system styles
   5. `lib/constants.ts` exports siteConfig, navLinks, services, housing, team, testimonials, FAQ, and stats without TypeScript errors
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: Next.js App Router scaffold with Tailwind 4 dark theme tokens
-- [ ] 01-02: Shared Header, Footer, and layout shell
-- [ ] 01-03: AnimatedSection, Button, Card, SectionHeader primitives and constants.ts
+- [ ] 01-01-PLAN.md — Next.js scaffold, Tailwind 4 dark theme tokens, route group layouts, font loading
+- [ ] 01-02-PLAN.md — Header with mobile menu, Footer, and layout shell wiring
+- [ ] 01-03-PLAN.md — AnimatedSection, Button, Card, SectionHeader primitives and constants.ts
 
 ### Phase 2: CMS
 **Goal**: Sanity CMS is connected to the project, all content schemas exist, the Studio is accessible at /studio, and ISR revalidation is wired so content changes reflect on the site
