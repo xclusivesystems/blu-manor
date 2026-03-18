@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+:root {
+  /* Blu Manor — Dark Navy/Gold Theme */
+  --bg-deep: #0F1623;
+  --bg-surface: #162032;
+  --bg-card: #1D2B42;
+  --bg-elevated: #263652;
+  --primary: #C9A84C;
+  --primary-light: #D4B85E;
+  --primary-dim: rgba(201, 168, 76, 0.12);
+  --primary-glow: rgba(201, 168, 76, 0.08);
+  --accent: #7BA7D9;
+  --accent-light: #92BBE5;
+  --foreground: #E8E4DC;
+  --muted: #8B9BB5;
+  --subtle: #5A6B82;
+  --border: #2A3A52;
+  --border-hover: #3D5070;
+  --success: #4ADE80;
+  --error: #EF4444;
+}
+
+@theme inline {
+  --color-bg-deep: var(--bg-deep);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-card: var(--bg-card);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-primary-dim: var(--primary-dim);
+  --color-primary-glow: var(--primary-glow);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
+  --color-success: var(--success);
+  --color-error: var(--error);
+}
+
+body {
+  background: var(--bg-deep);
+  color: var(--foreground);
+  font-family: var(--font-source-sans), system-ui, sans-serif;
+  line-height: 1.65;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-hover);
+  border-radius: 3px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(201, 168, 76, 0.3);
+  color: var(--foreground);
+}
+
+/* Grain texture overlay for hero/CTA sections */
+.grain {
+  position: relative;
+}
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
