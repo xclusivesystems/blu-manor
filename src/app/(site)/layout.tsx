@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Libre_Baskerville, Source_Sans_3 } from "next/font/google";
 import "../globals.css";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 const libreBaskerville = Libre_Baskerville({
   variable: "--font-libre",
@@ -30,7 +32,9 @@ export default function SiteLayout({
       <body
         className={`${libreBaskerville.variable} ${sourceSans3.variable} antialiased`}
       >
-        {children}
+        <Header />
+        <main className="min-h-screen pt-[72px]">{children}</main>
+        <Footer />
       </body>
     </html>
   );
