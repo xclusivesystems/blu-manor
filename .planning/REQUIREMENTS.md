@@ -26,8 +26,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [ ] **PAGE-01**: Home page — hero, values cards, how-it-works timeline, housing preview, impact stats, testimonials, partner logos, CTA
 - [ ] **PAGE-02**: About page — mission, story, team members (from Sanity)
-- [ ] **PAGE-03**: Housing page — listing cards with pricing, features, availability (from Sanity)
-- [ ] **PAGE-04**: Program page — program details, rules, what's included, timeline
+- [x] **PAGE-03**: Housing page — listing cards with pricing, features, availability (from Sanity)
+- [x] **PAGE-04**: Program page — program details, rules, what's included, timeline
 - [ ] **PAGE-05**: Partners page — partner logos/info (from Sanity), referral process, CTA
 - [ ] **PAGE-06**: Resources page — downloadable resources, FAQ accordion (from Sanity)
 - [ ] **PAGE-07**: Contact page — contact info cards, Google Maps embed
@@ -84,8 +84,8 @@ Requirements for initial release. Each maps to roadmap phases.
 | CMS-04 | Phase 2 | Pending |
 | PAGE-01 | Phase 3 | Pending |
 | PAGE-02 | Phase 3 | Pending |
-| PAGE-03 | Phase 3 | Pending |
-| PAGE-04 | Phase 3 | Pending |
+| PAGE-03 | Phase 3 | Complete |
+| PAGE-04 | Phase 3 | Complete |
 | PAGE-05 | Phase 3 | Pending |
 | PAGE-06 | Phase 3 | Pending |
 | PAGE-07 | Phase 3 | Pending |
