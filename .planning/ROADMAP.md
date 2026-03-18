@@ -66,7 +66,7 @@ Plans:
 Plans:
 - [ ] 03-01-PLAN.md — Home page (hero, services, timeline, housing preview, stats, testimonials, CTA) and About page (mission, story, values, stats)
 - [ ] 03-02-PLAN.md — Housing page (listing cards, amenities, eligibility) and Program page (services, rules, timeline, FAQ preview)
-- [ ] 03-03-PLAN.md — Partners page (referral process, partner phone CTA) and Resources page (FAQ accordion)
+- [x] 03-03-PLAN.md — Partners page (referral process, partner phone CTA) and Resources page (FAQ accordion)
 - [ ] 03-04-PLAN.md — Contact page (audience cards, Google Maps) and Apply page (form with Google Sheets submission) plus MobileCtaBar
 
 ### Phase 4: Ship
