@@ -30,8 +30,8 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **PAGE-04**: Program page — program details, rules, what's included, timeline
 - [x] **PAGE-05**: Partners page — partner logos/info (from Sanity), referral process, CTA
 - [x] **PAGE-06**: Resources page — downloadable resources, FAQ accordion (from Sanity)
-- [ ] **PAGE-07**: Contact page — contact info cards, Google Maps embed
-- [ ] **PAGE-08**: Apply page — full intake form with validation, Google Sheets submission via existing Apps Script URL
+- [x] **PAGE-07**: Contact page — contact info cards, Google Maps embed
+- [x] **PAGE-08**: Apply page — full intake form with validation, Google Sheets submission via existing Apps Script URL
 
 ### SEO
 
@@ -88,8 +88,8 @@ Requirements for initial release. Each maps to roadmap phases.
 | PAGE-04 | Phase 3 | Complete |
 | PAGE-05 | Phase 3 | Complete |
 | PAGE-06 | Phase 3 | Complete |
-| PAGE-07 | Phase 3 | Pending |
-| PAGE-08 | Phase 3 | Pending |
+| PAGE-07 | Phase 3 | Complete |
+| PAGE-08 | Phase 3 | Complete |
 | SEO-01 | Phase 4 | Pending |
 | SEO-02 | Phase 4 | Pending |
 | SEO-03 | Phase 4 | Pending |

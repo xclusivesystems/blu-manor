@@ -59,6 +59,9 @@ Recent decisions affecting current work:
 - [Phase 03-pages]: No referral form on Partners page — phone-first per CONTEXT.md (phone/email CTAs only)
 - [Phase 03-pages]: No partner logos section — no partner data in constants.ts
 - [Phase 03-pages]: FaqAccordion single-open accordion — null state = all closed, transition-[transform] not transition-all
+- [Phase 03-pages]: no-cors fetch to Google Apps Script — opaque response, treat resolve as success, catch as error; do not call res.json()
+- [Phase 03-pages]: Radio buttons as styled button elements (not native inputs) for design system token alignment
+- [Phase 03-pages]: MobileCtaBar uses md:hidden; main gets pb-20 md:pb-0 to prevent sticky bar from covering content
 
 ### Pending Todos
 
@@ -71,5 +74,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-18
-Stopped at: Completed 03-03-PLAN.md — Partners + Resources pages built, Plan 04 (Contact + Apply) remaining
+Stopped at: Completed 03-04-PLAN.md — Phase 3 (Pages) fully complete; all conversion pages built
 Resume file: None

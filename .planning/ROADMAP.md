@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Next.js scaffold, Tailwind 4 dark theme, shared layout, and reusable components (completed 2026-03-18)
 - [ ] **Phase 2: CMS** - Sanity project, schemas, Studio at /studio, and ISR revalidation
-- [ ] **Phase 3: Pages** - All eight pages built against live CMS data and design system
+- [x] **Phase 3: Pages** - All eight pages built against live CMS data and design system (completed 2026-03-18)
 - [ ] **Phase 4: Ship** - SEO infrastructure, GA4, Vercel deploy, DNS verification
 
 ## Phase Details
@@ -94,5 +94,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete   | 2026-03-18 |
 | 2. CMS | 0/2 | Not started | - |
-| 3. Pages | 3/4 | In Progress|  |
+| 3. Pages | 4/4 | Complete   | 2026-03-18 |
 | 4. Ship | 0/2 | Not started | - |
