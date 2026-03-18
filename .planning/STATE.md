@@ -10,28 +10,28 @@ See: .planning/PROJECT.md (updated 2026-03-17)
 ## Current Position
 
 Phase: 1 of 4 (Foundation)
-Plan: 1 of 3 in current phase
-Status: In progress
-Last activity: 2026-03-18 — Plan 01 complete: Next.js scaffold with Tailwind 4 tokens
+Plan: 3 of 3 in current phase
+Status: Phase complete
+Last activity: 2026-03-18 — Plan 03 complete: UI primitives + complete constants.ts
 
-Progress: [█░░░░░░░░░] 8%
+Progress: [███░░░░░░░] 25%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1
+- Total plans completed: 3
 - Average duration: 3 min
-- Total execution time: 0.05 hours
+- Total execution time: 0.15 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-foundation | 1/3 | 3 min | 3 min |
+| 01-foundation | 3/3 | 8 min | 3 min |
 
 **Recent Trend:**
-- Last 5 plans: 3 min
-- Trend: —
+- Last 5 plans: 2-3 min
+- Trend: Stable
 
 *Updated after each plan completion*
 
@@ -49,6 +49,8 @@ Recent decisions affecting current work:
 - Dark navy/gold theme per design-system/blu-manor/MASTER.md
 - [Phase 01-foundation]: No root app/layout.tsx — route groups (site) and (studio) each provide their own html/body shell
 - [Phase 01-foundation]: Tailwind 4 @theme inline — no tailwind.config.ts needed; all 17 color tokens defined as CSS custom properties
+- [Phase 01-foundation]: useReducedMotion() explicit hook in AnimatedSection — disables y transform (not just opacity) per MASTER.md
+- [Phase 01-foundation]: constants.ts is canonical — Plan 02 minimal bootstrap replaced with complete typed version
 
 ### Pending Todos
 
@@ -61,5 +63,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-18
-Stopped at: Completed 01-01-PLAN.md — ready for Plan 02 (Header/Footer)
+Stopped at: Completed 01-03-PLAN.md — Phase 1 Foundation complete, ready for Phase 2 (CMS)
 Resume file: None

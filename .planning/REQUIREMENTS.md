@@ -11,9 +11,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **SCAF-01**: Next.js App Router project with TypeScript, Tailwind 4, `@theme inline` dark theme tokens from design system
 - [ ] **SCAF-02**: Shared layout with Header (nav + mobile menu) and Footer
-- [ ] **SCAF-03**: AnimatedSection component (Framer Motion scroll reveals)
-- [ ] **SCAF-04**: Reusable UI primitives (Button, Card, SectionHeader)
-- [ ] **SCAF-05**: `lib/constants.ts` with all site content (siteConfig, navLinks, services, housing, team, testimonials, FAQ, stats)
+- [x] **SCAF-03**: AnimatedSection component (Framer Motion scroll reveals)
+- [x] **SCAF-04**: Reusable UI primitives (Button, Card, SectionHeader)
+- [x] **SCAF-05**: `lib/constants.ts` with all site content (siteConfig, navLinks, services, housing, team, testimonials, FAQ, stats)
 
 ### CMS
 
@@ -75,9 +75,9 @@ Requirements for initial release. Each maps to roadmap phases.
 |-------------|-------|--------|
 | SCAF-01 | Phase 1 | Complete |
 | SCAF-02 | Phase 1 | Pending |
-| SCAF-03 | Phase 1 | Pending |
-| SCAF-04 | Phase 1 | Pending |
-| SCAF-05 | Phase 1 | Pending |
+| SCAF-03 | Phase 1 | Complete |
+| SCAF-04 | Phase 1 | Complete |
+| SCAF-05 | Phase 1 | Complete |
 | CMS-01 | Phase 2 | Pending |
 | CMS-02 | Phase 2 | Pending |
 | CMS-03 | Phase 2 | Pending |
