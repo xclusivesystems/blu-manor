@@ -10,6 +10,7 @@ import {
   Heart,
   Scale,
   Phone,
+  Building2,
 } from "lucide-react";
 import { faq, siteConfig } from "@/lib/constants";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -149,7 +150,7 @@ export default function ResourcesPage() {
             />
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
             <AnimatedSection delay={0.1}>
               <Card className="flex flex-col">
                 <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
@@ -226,6 +227,28 @@ export default function ResourcesPage() {
                   className="text-primary font-medium text-sm hover:text-primary-light transition-[color] duration-200 inline-flex items-center gap-1"
                 >
                   Visit Resource →
+                </a>
+              </Card>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.5}>
+              <Card className="flex flex-col">
+                <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
+                  <Building2 className="text-primary" size={24} aria-hidden="true" />
+                </div>
+                <h4 className="text-lg font-semibold text-foreground mb-2">
+                  FL DOC Resource Directory
+                </h4>
+                <p className="text-muted text-sm leading-relaxed mb-4 flex-1">
+                  Florida Department of Corrections resource directory for reentry services, supervision offices, and community programs statewide.
+                </p>
+                <a
+                  href="https://www.dc.state.fl.us"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary font-medium text-sm hover:text-primary-light transition-[color] duration-200 inline-flex items-center gap-1"
+                >
+                  Visit FL DOC →
                 </a>
               </Card>
             </AnimatedSection>

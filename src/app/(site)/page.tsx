@@ -10,7 +10,7 @@ import { siteConfig, services, housing, testimonials, faq } from "@/lib/constant
 export const metadata: Metadata = {
   title: "Blu Manor | Felon-Friendly Transitional Housing in Tampa Bay, FL",
   description:
-    "Safe, structured, and affordable transitional housing for individuals reentering the community in Tampa Bay, FL. Felon-friendly, move-in ready, $750/month all-inclusive. Call 727-563-6540.",
+    "Safe, structured, and affordable transitional housing for individuals reentering the community in Tampa Bay, FL. Felon-friendly, move-in ready, rooms starting at $750/month all-inclusive. Private rooms available. Call 727-563-6540.",
 };
 
 const serviceIcons = {
@@ -42,7 +42,7 @@ export default function HomePage() {
               Safe &bull; Structured &bull; Affordable Living
             </p>
             <p className="text-muted text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-8">
-              Move-in ready shared bedrooms with utilities and Wi-Fi included. Professionally managed, felon-friendly housing designed to help you rebuild and thrive.
+              Shared and private rooms starting at $750/month with utilities and Wi-Fi included. Professionally managed, felon-friendly housing designed to help you rebuild and thrive.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
               <Button href={`tel:${siteConfig.phoneResident.replace(/-/g, "")}`} size="lg">
@@ -134,48 +134,55 @@ export default function HomePage() {
       {/* ===== HOUSING SNAPSHOT ===== */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-bg-deep">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-            {/* Pricing Card */}
-            <AnimatedSection delay={0}>
-              <Card className="h-full">
-                <div className="flex items-end justify-between mb-6">
-                  <h3 className="text-foreground font-semibold text-xl">Shared Room</h3>
-                  <div>
-                    <span className="text-3xl font-bold text-primary font-[family-name:var(--font-libre)]">
-                      {housing[0].price}
-                    </span>
-                    <span className="text-muted text-sm">{housing[0].pricePeriod}</span>
+          <AnimatedSection>
+            <SectionHeader
+              label="Housing"
+              title="Rooms Starting at $750/month"
+              description="Shared and private rooms available — fully furnished with everything included. No hidden fees, no surprises."
+              className="mb-12"
+            />
+          </AnimatedSection>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+            {housing.map((option, i) => (
+              <AnimatedSection key={option.id} delay={i * 0.1}>
+                <Card className="h-full">
+                  <div className="flex items-end justify-between mb-6">
+                    <h3 className="text-foreground font-semibold text-xl">{option.type}</h3>
+                    <div>
+                      <span className="text-3xl font-bold text-primary font-[family-name:var(--font-libre)]">
+                        {option.price}
+                      </span>
+                      <span className="text-muted text-sm">{option.pricePeriod}</span>
+                    </div>
                   </div>
-                </div>
-                <ul className="space-y-3">
-                  {housing[0].features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-3 text-muted text-sm">
-                      <CheckCircle size={16} className="text-primary shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            </AnimatedSection>
-
-            {/* Info + Image */}
-            <AnimatedSection delay={0.15}>
-              <div className="rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(15,22,35,0.5)] mb-6">
-                {/* Bedroom image — public/images/bedroom-shared.jpg */}
-                <img
-                  src="/images/bedroom-shared.jpg"
-                  alt="Blu Manor shared bedroom — two twin beds, dressers, and flat-screen TV"
-                  className="w-full h-auto block"
-                />
-              </div>
-              <p className="text-muted text-base leading-relaxed mb-5">
-                Fully furnished shared rooms with everything included — no hidden fees, no surprises. One simple rate so you can focus on rebuilding your life.
+                  <ul className="space-y-3 mb-6">
+                    {option.features.map((feature) => (
+                      <li key={feature} className="flex items-center gap-3 text-muted text-sm">
+                        <CheckCircle size={16} className="text-primary shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex items-center gap-2">
+                    <span className={`w-2 h-2 rounded-full ${option.availability === "Available" ? "bg-success" : "bg-primary"}`} />
+                    <span className={`text-sm font-medium ${option.availability === "Available" ? "text-success" : "text-primary"}`}>
+                      {option.availability}
+                    </span>
+                  </div>
+                </Card>
+              </AnimatedSection>
+            ))}
+          </div>
+          <AnimatedSection delay={0.2}>
+            <div className="text-center">
+              <p className="text-muted text-base leading-relaxed mb-5 max-w-2xl mx-auto">
+                One simple rate so you can focus on rebuilding your life. Call to check current availability and pricing for private rooms.
               </p>
-              <Button href="/housing" variant="secondary">
+              <Button href="/housing">
                 View Full Details
               </Button>
-            </AnimatedSection>
-          </div>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 

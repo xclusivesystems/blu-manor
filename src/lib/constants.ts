@@ -156,6 +156,22 @@ export const housing: HousingOption[] = [
     ],
     availability: "Available",
   },
+  {
+    id: "private-room",
+    type: "Private Room",
+    price: "Call",
+    pricePeriod: " for pricing",
+    features: [
+      "Private bedroom",
+      "Personal dresser & storage",
+      "Flat-screen TV",
+      "Utilities & Wi-Fi included",
+      "On-site laundry",
+      "Employment-focused environment",
+      "Supervision compliance support",
+    ],
+    availability: "Limited",
+  },
 ];
 
 // ============================================================

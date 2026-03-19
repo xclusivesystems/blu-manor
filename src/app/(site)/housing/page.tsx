@@ -4,7 +4,7 @@ import {
   MapPin,
   Phone,
 } from "lucide-react";
-import { siteConfig } from "@/lib/constants";
+import { siteConfig, housing } from "@/lib/constants";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import Button from "@/components/ui/Button";
 import SectionHeader from "@/components/ui/SectionHeader";
@@ -25,7 +25,7 @@ const amenities = [
 ];
 
 const feeSchedule = [
-  { item: "Shared Room Rate", details: "$750 per month" },
+  { item: "Shared Room Rate", details: "Starting at $750 per month" },
   { item: "Utilities", details: "Included" },
   { item: "Wi-Fi", details: "Included" },
   { item: "Laundry", details: "On-site, Included" },
@@ -60,8 +60,8 @@ export default function HousingPage() {
           <AnimatedSection>
             <SectionHeader
               label="What's Included"
-              title="Fully Furnished Shared Rooms"
-              description="Move-in ready rooms across the Tampa Bay area. $750/month, all-inclusive — no hidden fees, no surprises."
+              title="Fully Furnished Rooms"
+              description="Shared and private rooms starting at $750/month across the Tampa Bay area. All-inclusive — no hidden fees, no surprises."
             />
             <p className="text-center text-sm text-muted mt-4">
               Call{" "}
