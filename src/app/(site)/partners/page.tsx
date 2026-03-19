@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ClipboardList, Handshake, Home, Phone } from "lucide-react";
 import { siteConfig } from "@/lib/constants";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import Button from "@/components/ui/Button";
@@ -7,9 +8,9 @@ import Card from "@/components/ui/Card";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 export const metadata: Metadata = {
-  title: "Partners | Blu Manor — Referral Partnership for Reentry Professionals",
+  title: "For Reentry Professionals — Partner With Blu Manor",
   description:
-    "Probation officers, parole agents, and reentry professionals: partner with Blu Manor to refer clients to structured, employment-focused transitional housing in Tampa Bay.",
+    "Probation officers, parole officers, and case managers: partner with Blu Manor to place clients in structured, supervision-compliant transitional housing across Tampa Bay.",
 };
 
 export default function PartnersPage() {
@@ -19,69 +20,68 @@ export default function PartnersPage() {
       <section className="py-24 bg-bg-surface grain">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <AnimatedSection>
-            <p className="text-sm uppercase tracking-wide text-primary font-medium mb-3">
-              For Professionals
-            </p>
             <h1 className="font-[family-name:var(--font-libre)] text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4">
-              Partner With Us
+              For Reentry Professionals &amp; Supervision Officers
             </h1>
-            <p className="text-muted text-lg max-w-2xl mx-auto">
-              For probation officers, parole agents, and reentry professionals
-              who need structured, accountable housing for their clients.
-            </p>
+            <nav aria-label="Breadcrumb" className="flex items-center justify-center gap-2 text-sm text-muted mt-4">
+              <Link href="/" className="hover:text-primary transition-[color] duration-200">Home</Link>
+              <span aria-hidden="true">/</span>
+              <span className="text-foreground">Partners</span>
+            </nav>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Why Partner */}
-      <section className="py-20 px-6">
+      {/* Partner Overview */}
+      <section className="py-20 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <AnimatedSection>
             <SectionHeader
-              label="For Professionals"
-              title="Why Work With Blu Manor"
-              description="We make the referral process simple and maintain the standards that matter to you."
+              label="Partnership"
+              title="Collaborate With Blu Manor"
+              description="We work directly with probation officers, parole officers, and reentry organizations to provide stable housing for your clients."
             />
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
             <AnimatedSection delay={0.1}>
               <Card>
-                <h3 className="text-lg font-semibold text-foreground mb-3">
+                <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
+                  <ClipboardList className="text-primary" size={24} aria-hidden="true" />
+                </div>
+                <h4 className="text-lg font-semibold text-foreground mb-3">
+                  Direct Referral Process
+                </h4>
+                <p className="text-muted text-sm leading-relaxed">
+                  Submit referrals quickly using our online intake form below. We review and respond within 48 hours.
+                </p>
+              </Card>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.2}>
+              <Card>
+                <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
+                  <Handshake className="text-primary" size={24} aria-hidden="true" />
+                </div>
+                <h4 className="text-lg font-semibold text-foreground mb-3">
+                  Agency Collaboration
+                </h4>
+                <p className="text-muted text-sm leading-relaxed">
+                  We maintain open communication with supervision officers and provide compliance updates as needed.
+                </p>
+              </Card>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.3}>
+              <Card>
+                <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
+                  <Home className="text-primary" size={24} aria-hidden="true" />
+                </div>
+                <h4 className="text-lg font-semibold text-foreground mb-3">
                   Structured Environment
-                </h3>
+                </h4>
                 <p className="text-muted text-sm leading-relaxed">
-                  Our house rules enforce accountability — curfews, drug-free
-                  premises, mandatory employment or income, and compliance with
-                  all supervision requirements. Your clients know expectations
-                  are clear and enforced.
-                </p>
-              </Card>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.2}>
-              <Card>
-                <h3 className="text-lg font-semibold text-foreground mb-3">
-                  Employment Focus
-                </h3>
-                <p className="text-muted text-sm leading-relaxed">
-                  Residents are required to maintain employment or verified
-                  income. We actively support job stability as a condition of
-                  housing — aligning with supervision goals and reducing the
-                  risk of recidivism.
-                </p>
-              </Card>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.3}>
-              <Card>
-                <h3 className="text-lg font-semibold text-foreground mb-3">
-                  Open Communication
-                </h3>
-                <p className="text-muted text-sm leading-relaxed">
-                  We work directly with probation and parole officers. If you
-                  need to verify a resident&apos;s status, confirm their address, or
-                  discuss a concern, we&apos;re reachable and responsive.
+                  Our housing includes curfew enforcement, drug-free policies, and employment requirements — supporting your client&apos;s reentry plan.
                 </p>
               </Card>
             </AnimatedSection>
@@ -89,131 +89,64 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* How Referrals Work */}
-      <section className="py-20 px-6 bg-bg-surface">
-        <div className="max-w-6xl mx-auto">
-          <AnimatedSection>
-            <SectionHeader
-              label="Referral Process"
-              title="How It Works"
-              description="A straightforward process designed to get your client housed quickly."
-            />
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <AnimatedSection delay={0.1}>
-              <div className="text-center md:text-left">
-                <p className="text-4xl font-bold text-primary mb-4">01</p>
-                <h3 className="text-lg font-semibold text-foreground mb-2">
-                  Contact Us
-                </h3>
-                <p className="text-muted text-sm leading-relaxed">
-                  Call our partner line or email us with your client&apos;s details
-                  — name, supervision status, and any specific requirements. We
-                  respond promptly.
-                </p>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.2}>
-              <div className="text-center md:text-left">
-                <p className="text-4xl font-bold text-primary mb-4">02</p>
-                <h3 className="text-lg font-semibold text-foreground mb-2">
-                  Client Applies
-                </h3>
-                <p className="text-muted text-sm leading-relaxed">
-                  Your client completes our simple application — we keep it
-                  straightforward so the process doesn&apos;t add unnecessary
-                  barriers for someone working to rebuild.
-                </p>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.3}>
-              <div className="text-center md:text-left">
-                <p className="text-4xl font-bold text-primary mb-4">03</p>
-                <h3 className="text-lg font-semibold text-foreground mb-2">
-                  We Coordinate
-                </h3>
-                <p className="text-muted text-sm leading-relaxed">
-                  We review the application, approve placement, and coordinate
-                  move-in together. You stay informed throughout so there are no
-                  surprises on your end.
-                </p>
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact CTA */}
-      <section className="py-20 px-6">
+      {/* Referral CTA */}
+      <section className="py-20 px-6 bg-bg-surface" id="referral-form">
         <div className="max-w-3xl mx-auto text-center">
           <AnimatedSection>
             <SectionHeader
-              label="Get In Touch"
-              title="Ready to Make a Referral?"
-              description="Reach out directly — no forms, no delays. Call or email and we'll take it from there."
+              label="Submit a Referral"
+              title="Refer a Client for Housing"
+              description="Use our comprehensive intake form to refer a client for transitional housing at Blu Manor. The form includes fields for agency and officer information."
             />
 
-            <div className="mt-10 space-y-4">
-              <div>
-                <p className="text-sm uppercase tracking-wide text-muted mb-1">
-                  Partner Line
-                </p>
+            <div className="mt-10">
+              <Button href="/apply" variant="primary" size="lg">
+                Complete Intake Form
+              </Button>
+              <p className="mt-4 text-sm text-muted">
+                <strong className="text-foreground">Urgent placement?</strong> Call us directly at{" "}
+                <a
+                  href={`tel:${siteConfig.phoneResident.replace(/-/g, "")}`}
+                  className="text-primary font-bold hover:text-primary-light transition-[color] duration-200"
+                >
+                  {siteConfig.phoneResident}
+                </a>{" "}
+                or{" "}
                 <a
                   href={`tel:${siteConfig.phonePartner.replace(/-/g, "")}`}
-                  className="text-3xl font-bold text-primary hover:text-primary-light transition-[color] duration-200 cursor-pointer"
+                  className="text-primary font-bold hover:text-primary-light transition-[color] duration-200"
                 >
                   {siteConfig.phonePartner}
                 </a>
-              </div>
-
-              <div>
-                <p className="text-sm uppercase tracking-wide text-muted mb-1">
-                  Email
-                </p>
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="text-lg text-foreground hover:text-primary transition-[color] duration-200 cursor-pointer"
-                >
-                  {siteConfig.email}
-                </a>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-              <Button
-                href={`tel:${siteConfig.phonePartner.replace(/-/g, "")}`}
-                variant="primary"
-                size="lg"
-              >
-                Call Partner Line
-              </Button>
-              <Button
-                href={`mailto:${siteConfig.email}`}
-                variant="secondary"
-                size="lg"
-              >
-                Email Us
-              </Button>
+              </p>
             </div>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Resident Redirect */}
-      <section className="py-8 px-6 bg-bg-surface border-t border-border">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-muted text-sm">
-            Are you looking for housing for yourself?{" "}
-            <Link
-              href="/apply"
-              className="text-primary hover:text-primary-light transition-[color] duration-200 underline underline-offset-2"
-            >
-              Apply here
-            </Link>
-          </p>
+      {/* CTA Banner */}
+      <section className="py-20 px-6 bg-bg-deep text-center">
+        <div className="max-w-3xl mx-auto">
+          <AnimatedSection>
+            <h2 className="font-[family-name:var(--font-libre)] text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-4">
+              Want to Learn More About Partnering?
+            </h2>
+            <p className="text-muted text-lg mb-8">
+              Download our Reentry Partner Packet or call to discuss how we can work together.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button href="/resources" variant="primary" size="lg">
+                Download Partner Packet
+              </Button>
+              <a
+                href={`tel:${siteConfig.phoneResident.replace(/-/g, "")}`}
+                className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-primary text-primary px-8 py-4 text-lg font-medium hover:bg-primary-dim transition-[color,background-color,border-color] duration-200"
+              >
+                <Phone size={18} aria-hidden="true" />
+                Call {siteConfig.phoneResident}
+              </a>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
     </main>

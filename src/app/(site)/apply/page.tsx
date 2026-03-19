@@ -1,39 +1,35 @@
 import type { Metadata } from "next";
-import { ClipboardList, Search, FileText, Home } from "lucide-react";
+import Link from "next/link";
 import ApplyForm from "@/components/apply/ApplyForm";
 import SectionHeader from "@/components/ui/SectionHeader";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export const metadata: Metadata = {
-  title: "Apply | Blu Manor — Start Your Application",
+  title: "Apply for Housing — Blu Manor Tampa Bay",
   description:
-    "Apply for transitional housing at Blu Manor in Tampa Bay. Felon-friendly, move-in ready, $750/month all-inclusive. Complete the form to get started.",
+    "Apply for transitional housing at Blu Manor. Move-in ready rooms available across Tampa Bay. Felon-friendly, $750/month all-inclusive.",
 };
 
 const steps = [
   {
-    icon: ClipboardList,
-    step: "01",
-    title: "Apply",
-    description: "Submit your application — takes less than 5 minutes.",
+    number: 1,
+    title: "Submit your application",
+    description: "Takes about 5 minutes",
   },
   {
-    icon: Search,
-    step: "02",
-    title: "Review",
-    description: "We review your application and reach out within 1-2 business days.",
+    number: 2,
+    title: "We review and follow up",
+    description: "Within 1 business day",
   },
   {
-    icon: FileText,
-    step: "03",
-    title: "Documentation",
-    description: "Provide any required documents and complete final approval steps.",
+    number: 3,
+    title: "Complete documentation & intake",
+    description: "Finalize your paperwork",
   },
   {
-    icon: Home,
-    step: "04",
-    title: "Move In",
-    description: "Get your keys and start your next chapter in stable housing.",
+    number: 4,
+    title: "Move in",
+    description: "Often within days of approval",
   },
 ];
 
@@ -41,82 +37,69 @@ export default function ApplyPage() {
   return (
     <>
       {/* Page Banner */}
-      <section className="py-24 bg-bg-surface grain">
+      <section className="py-20 bg-bg-surface grain">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
             <h1 className="text-4xl md:text-5xl font-bold text-foreground font-[family-name:var(--font-libre)] tracking-tight">
-              Apply Now
+              Comprehensive Referral &amp; Intake
             </h1>
-            <p className="mt-4 text-lg text-muted max-w-2xl mx-auto">
-              Start your journey to stable housing
-            </p>
+            <nav className="mt-4 flex items-center justify-center gap-2 text-sm text-muted">
+              <Link href="/" className="hover:text-primary transition-[color] duration-200">Home</Link>
+              <span>/</span>
+              <span>Apply</span>
+            </nav>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* What To Expect — 4-step timeline */}
+      {/* Application Form Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-bg-surface">
         <div className="max-w-5xl mx-auto">
           <AnimatedSection>
             <SectionHeader
-              label="The Process"
-              title="What To Expect"
-              description="We've made the application process as simple as possible."
+              label="Apply for Housing"
+              title="Referral &amp; Intake Packet"
+              description="Complete the form below to apply for transitional housing at Blu Manor. All fields marked with * are required."
             />
           </AnimatedSection>
 
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {steps.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <AnimatedSection key={item.step} delay={index * 0.1}>
-                  <div className="text-center">
-                    <div className="w-14 h-14 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-4">
-                      <Icon className="w-6 h-6 text-primary" />
+          {/* What to Expect Timeline */}
+          <AnimatedSection delay={0.1}>
+            <div className="mt-12 rounded-xl border border-border bg-bg-card p-8 shadow-[0_4px_24px_rgba(15,22,35,0.4)]">
+              <h3 className="text-xl font-semibold text-foreground text-center mb-8">
+                What to Expect
+              </h3>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                {steps.map((step, index) => (
+                  <div key={step.number} className="flex sm:flex-col items-center sm:items-center gap-4 sm:gap-0 flex-1">
+                    <div className="flex sm:flex-col items-center gap-4 sm:gap-0 w-full">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary flex items-center justify-center text-bg-deep font-bold text-sm">
+                        {step.number}
+                      </div>
+                      {index < steps.length - 1 && (
+                        <div className="hidden sm:block h-px flex-1 bg-border mx-4 absolute" />
+                      )}
+                      <div className="sm:text-center sm:mt-3">
+                        <strong className="block text-foreground text-sm font-semibold">
+                          {step.title}
+                        </strong>
+                        <span className="text-muted text-xs mt-1 block">{step.description}</span>
+                      </div>
                     </div>
-                    <span className="text-xs uppercase tracking-widest text-primary font-medium">
-                      Step {item.step}
-                    </span>
-                    <h3 className="text-lg font-semibold text-foreground mt-1 mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-muted text-sm">{item.description}</p>
+                    {index < steps.length - 1 && (
+                      <div className="hidden sm:hidden h-px w-8 bg-border self-stretch sm:w-px sm:h-8" />
+                    )}
                   </div>
-                </AnimatedSection>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Application Form */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto">
-          <AnimatedSection>
-            <SectionHeader
-              label="Application"
-              title="Start Your Application"
-              description="All fields are required. We keep your information confidential."
-            />
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.1} className="mt-10">
-            <div className="rounded-xl border border-border bg-bg-card p-6 md:p-8 shadow-[0_4px_24px_rgba(15,22,35,0.4)]">
-              <ApplyForm />
+                ))}
+              </div>
             </div>
           </AnimatedSection>
 
-          {/* Need Help? */}
-          <AnimatedSection delay={0.2} className="mt-6 text-center">
-            <p className="text-muted text-sm">
-              Having trouble with the form? Call us at{" "}
-              <a
-                href="tel:727-563-6540"
-                className="text-primary font-medium cursor-pointer hover:text-primary-light transition-[color] duration-200"
-              >
-                727-563-6540
-              </a>
-            </p>
+          {/* Application Form */}
+          <AnimatedSection delay={0.2} className="mt-10">
+            <div className="rounded-xl border border-border bg-bg-card p-6 md:p-10 shadow-[0_4px_24px_rgba(15,22,35,0.4)]">
+              <ApplyForm />
+            </div>
           </AnimatedSection>
         </div>
       </section>

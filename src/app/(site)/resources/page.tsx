@@ -1,14 +1,27 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import {
+  BookOpen,
+  ClipboardList,
+  FileText,
+  Handshake,
+  Briefcase,
+  GraduationCap,
+  Heart,
+  Scale,
+  Phone,
+} from "lucide-react";
 import { faq, siteConfig } from "@/lib/constants";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import Button from "@/components/ui/Button";
+import Card from "@/components/ui/Card";
 import SectionHeader from "@/components/ui/SectionHeader";
 import FaqAccordion from "@/components/resources/FaqAccordion";
 
 export const metadata: Metadata = {
-  title: "Resources & FAQ | Blu Manor — Common Questions Answered",
+  title: "Resources & Documents | Resident Handbook & Forms | Blu Manor",
   description:
-    "Find answers to common questions about Blu Manor's transitional housing program — eligibility, pricing, house rules, move-in timeline, and how referrals work.",
+    "Download Blu Manor's resident handbook, house rules, application forms, and partner packets. Employment, education, and mental health resources.",
 };
 
 export default function ResourcesPage() {
@@ -18,22 +31,210 @@ export default function ResourcesPage() {
       <section className="py-24 bg-bg-surface grain">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <AnimatedSection>
-            <p className="text-sm uppercase tracking-wide text-primary font-medium mb-3">
-              Information
-            </p>
             <h1 className="font-[family-name:var(--font-libre)] text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4">
-              Resources
+              Resources &amp; Documents
             </h1>
-            <p className="text-muted text-lg max-w-2xl mx-auto">
-              Find answers to common questions about our program, eligibility,
-              pricing, and how to get started.
-            </p>
+            <nav aria-label="Breadcrumb" className="flex items-center justify-center gap-2 text-sm text-muted mt-4">
+              <Link href="/" className="hover:text-primary transition-[color] duration-200">Home</Link>
+              <span aria-hidden="true">/</span>
+              <span className="text-foreground">Resources</span>
+            </nav>
           </AnimatedSection>
         </div>
       </section>
 
+      {/* Forms & Documents */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <AnimatedSection>
+            <SectionHeader
+              label="Downloads"
+              title="Forms &amp; Documents"
+              description="Download important documents, forms, and handbooks related to the Blu Manor housing program."
+            />
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+            <AnimatedSection delay={0.1}>
+              <Card className="flex flex-col">
+                <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
+                  <BookOpen className="text-primary" size={24} aria-hidden="true" />
+                </div>
+                <h4 className="text-lg font-semibold text-foreground mb-2">
+                  Resident Handbook
+                </h4>
+                <p className="text-muted text-sm leading-relaxed mb-4 flex-1">
+                  Complete guide to policies, expectations, and resources for all residents.
+                </p>
+                <a
+                  href="#"
+                  className="text-primary font-medium text-sm hover:text-primary-light transition-[color] duration-200 inline-flex items-center gap-1"
+                >
+                  ↓ Download PDF
+                </a>
+              </Card>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.2}>
+              <Card className="flex flex-col">
+                <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
+                  <ClipboardList className="text-primary" size={24} aria-hidden="true" />
+                </div>
+                <h4 className="text-lg font-semibold text-foreground mb-2">
+                  House Rules
+                </h4>
+                <p className="text-muted text-sm leading-relaxed mb-4 flex-1">
+                  Detailed rules and guidelines all residents are expected to follow.
+                </p>
+                <a
+                  href="#"
+                  className="text-primary font-medium text-sm hover:text-primary-light transition-[color] duration-200 inline-flex items-center gap-1"
+                >
+                  ↓ Download PDF
+                </a>
+              </Card>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.3}>
+              <Card className="flex flex-col">
+                <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
+                  <FileText className="text-primary" size={24} aria-hidden="true" />
+                </div>
+                <h4 className="text-lg font-semibold text-foreground mb-2">
+                  Application Form
+                </h4>
+                <p className="text-muted text-sm leading-relaxed mb-4 flex-1">
+                  Printable version of the housing application for offline submission.
+                </p>
+                <a
+                  href="#"
+                  className="text-primary font-medium text-sm hover:text-primary-light transition-[color] duration-200 inline-flex items-center gap-1"
+                >
+                  ↓ Download PDF
+                </a>
+              </Card>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.4}>
+              <Card className="flex flex-col">
+                <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
+                  <Handshake className="text-primary" size={24} aria-hidden="true" />
+                </div>
+                <h4 className="text-lg font-semibold text-foreground mb-2">
+                  Reentry Partner Packet
+                </h4>
+                <p className="text-muted text-sm leading-relaxed mb-4 flex-1">
+                  Information packet for supervision officers and reentry professionals.
+                </p>
+                <a
+                  href="#"
+                  className="text-primary font-medium text-sm hover:text-primary-light transition-[color] duration-200 inline-flex items-center gap-1"
+                >
+                  ↓ Download PDF
+                </a>
+              </Card>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* External Resources */}
+      <section className="py-20 px-6 bg-bg-surface">
+        <div className="max-w-6xl mx-auto">
+          <AnimatedSection>
+            <SectionHeader
+              label="Helpful Links"
+              title="External Resources"
+              description="Additional resources for employment, reentry support, and community services."
+            />
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+            <AnimatedSection delay={0.1}>
+              <Card className="flex flex-col">
+                <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
+                  <Briefcase className="text-primary" size={24} aria-hidden="true" />
+                </div>
+                <h4 className="text-lg font-semibold text-foreground mb-2">
+                  Employment Services
+                </h4>
+                <p className="text-muted text-sm leading-relaxed mb-4 flex-1">
+                  Job search assistance, resume building, and career development resources.
+                </p>
+                <a
+                  href="#"
+                  className="text-primary font-medium text-sm hover:text-primary-light transition-[color] duration-200 inline-flex items-center gap-1"
+                >
+                  Visit Resource →
+                </a>
+              </Card>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.2}>
+              <Card className="flex flex-col">
+                <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
+                  <GraduationCap className="text-primary" size={24} aria-hidden="true" />
+                </div>
+                <h4 className="text-lg font-semibold text-foreground mb-2">
+                  Education &amp; Training
+                </h4>
+                <p className="text-muted text-sm leading-relaxed mb-4 flex-1">
+                  GED programs, vocational training, and continuing education opportunities.
+                </p>
+                <a
+                  href="#"
+                  className="text-primary font-medium text-sm hover:text-primary-light transition-[color] duration-200 inline-flex items-center gap-1"
+                >
+                  Visit Resource →
+                </a>
+              </Card>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.3}>
+              <Card className="flex flex-col">
+                <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
+                  <Heart className="text-primary" size={24} aria-hidden="true" />
+                </div>
+                <h4 className="text-lg font-semibold text-foreground mb-2">
+                  Mental Health Services
+                </h4>
+                <p className="text-muted text-sm leading-relaxed mb-4 flex-1">
+                  Counseling, substance abuse programs, and mental health support.
+                </p>
+                <a
+                  href="#"
+                  className="text-primary font-medium text-sm hover:text-primary-light transition-[color] duration-200 inline-flex items-center gap-1"
+                >
+                  Visit Resource →
+                </a>
+              </Card>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.4}>
+              <Card className="flex flex-col">
+                <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
+                  <Scale className="text-primary" size={24} aria-hidden="true" />
+                </div>
+                <h4 className="text-lg font-semibold text-foreground mb-2">
+                  Legal Aid
+                </h4>
+                <p className="text-muted text-sm leading-relaxed mb-4 flex-1">
+                  Free and low-cost legal assistance for reentry-related matters.
+                </p>
+                <a
+                  href="#"
+                  className="text-primary font-medium text-sm hover:text-primary-light transition-[color] duration-200 inline-flex items-center gap-1"
+                >
+                  Visit Resource →
+                </a>
+              </Card>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
           <AnimatedSection>
             <SectionHeader
@@ -49,78 +250,27 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      {/* Still Have Questions? */}
-      <section className="py-20 px-6 bg-bg-surface">
-        <div className="max-w-4xl mx-auto">
+      {/* CTA Banner */}
+      <section className="py-20 px-6 bg-bg-deep text-center">
+        <div className="max-w-3xl mx-auto">
           <AnimatedSection>
-            <SectionHeader
-              label="Need Help?"
-              title="We're Here For You"
-              description="Can't find what you're looking for? Reach out directly and we'll get you an answer."
-            />
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
-            <AnimatedSection delay={0.1}>
-              <div className="rounded-xl border border-border bg-bg-card p-6">
-                <p className="text-sm uppercase tracking-wide text-primary font-medium mb-2">
-                  Residents &amp; Applicants
-                </p>
-                <h3 className="text-lg font-semibold text-foreground mb-1">
-                  Housing Inquiries
-                </h3>
-                <p className="text-muted text-sm mb-4">
-                  For housing inquiries and applications
-                </p>
-                <a
-                  href={`tel:${siteConfig.phoneResident.replace(/-/g, "")}`}
-                  className="text-2xl font-bold text-primary hover:text-primary-light transition-[color] duration-200 cursor-pointer"
-                >
-                  {siteConfig.phoneResident}
-                </a>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.2}>
-              <div className="rounded-xl border border-border bg-bg-card p-6">
-                <p className="text-sm uppercase tracking-wide text-primary font-medium mb-2">
-                  Professionals
-                </p>
-                <h3 className="text-lg font-semibold text-foreground mb-1">
-                  Partner &amp; Referral Line
-                </h3>
-                <p className="text-muted text-sm mb-4">
-                  For referrals and professional inquiries
-                </p>
-                <a
-                  href={`tel:${siteConfig.phonePartner.replace(/-/g, "")}`}
-                  className="text-2xl font-bold text-primary hover:text-primary-light transition-[color] duration-200 cursor-pointer"
-                >
-                  {siteConfig.phonePartner}
-                </a>
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <AnimatedSection>
-            <SectionHeader
-              label="Next Steps"
-              title="Ready to Take the Next Step?"
-              description="Whether you're ready to apply or just want to learn more, we're here to help."
-            />
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-              <Button href="/apply" variant="primary" size="lg">
-                Apply Now
-              </Button>
-              <Button href="/contact" variant="secondary" size="lg">
+            <h2 className="font-[family-name:var(--font-libre)] text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-4">
+              Need Help Finding Resources?
+            </h2>
+            <p className="text-muted text-lg mb-8">
+              Our team can help connect you with the right support services.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button href="/contact" variant="primary" size="lg">
                 Contact Us
               </Button>
+              <a
+                href={`tel:${siteConfig.phoneResident.replace(/-/g, "")}`}
+                className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-primary text-primary px-8 py-4 text-lg font-medium hover:bg-primary-dim transition-[color,background-color,border-color] duration-200"
+              >
+                <Phone size={18} aria-hidden="true" />
+                Call {siteConfig.phoneResident}
+              </a>
             </div>
           </AnimatedSection>
         </div>

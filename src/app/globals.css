@@ -1,24 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  /* Blu Manor — Dark Navy/Gold Theme */
-  --bg-deep: #0F1623;
-  --bg-surface: #162032;
-  --bg-card: #1D2B42;
-  --bg-elevated: #263652;
-  --primary: #C9A84C;
-  --primary-light: #D4B85E;
-  --primary-dim: rgba(201, 168, 76, 0.12);
-  --primary-glow: rgba(201, 168, 76, 0.08);
-  --accent: #7BA7D9;
-  --accent-light: #92BBE5;
-  --foreground: #E8E4DC;
-  --muted: #8B9BB5;
-  --subtle: #5A6B82;
-  --border: #2A3A52;
-  --border-hover: #3D5070;
-  --success: #4ADE80;
-  --error: #EF4444;
+  /* Blu Manor — Brightened Navy/Gold Theme */
+  --bg-deep: #1A2744;
+  --bg-surface: #223354;
+  --bg-card: #2A3D62;
+  --bg-elevated: #344A72;
+  --primary: #D4B254;
+  --primary-light: #E0C46A;
+  --primary-dim: rgba(212, 178, 84, 0.15);
+  --primary-glow: rgba(212, 178, 84, 0.10);
+  --accent: #8BB8E8;
+  --accent-light: #A3CBF0;
+  --foreground: #F0ECE4;
+  --muted: #A0B0C8;
+  --subtle: #6E82A0;
+  --border: #384E6E;
+  --border-hover: #4D6588;
+  --success: #5AE890;
+  --error: #F05252;
 }
 
 @theme inline {

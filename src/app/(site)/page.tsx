@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
-import { Home, Briefcase, Shield, CheckCircle } from "lucide-react";
+import { Home, Briefcase, Shield, CheckCircle, Phone, Building2, BicepsFlexed, ClipboardList, Star } from "lucide-react";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import SectionHeader from "@/components/ui/SectionHeader";
-import { siteConfig, services, housing, stats, testimonials } from "@/lib/constants";
+import FaqAccordion from "@/components/resources/FaqAccordion";
+import { siteConfig, services, housing, testimonials, faq } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Blu Manor | Second Chance Transitional Housing Tampa Bay",
-  description: siteConfig.description,
+  title: "Blu Manor | Felon-Friendly Transitional Housing in Tampa Bay, FL",
+  description:
+    "Safe, structured, and affordable transitional housing for individuals reentering the community in Tampa Bay, FL. Felon-friendly, move-in ready, $750/month all-inclusive. Call 727-563-6540.",
 };
 
 const serviceIcons = {
@@ -18,94 +20,109 @@ const serviceIcons = {
   CheckCircle,
 } as const;
 
-const howItWorksSteps = [
-  {
-    number: "01",
-    title: "Apply",
-    description: "Complete our short application with your basic info, employment status, and supervision details.",
-  },
-  {
-    number: "02",
-    title: "Review",
-    description: "Our team reviews your application and contacts you within 24 hours to discuss next steps.",
-  },
-  {
-    number: "03",
-    title: "Documentation",
-    description: "Provide required documents including ID, supervision paperwork, and proof of income or employment.",
-  },
-  {
-    number: "04",
-    title: "Move In",
-    description: "Complete your intake, sign your residency agreement, and move into your fully furnished room.",
-  },
-];
-
 export default function HomePage() {
   return (
     <div>
-      {/* 1. Hero */}
+      {/* ===== HERO ===== */}
       <section
-        className="grain min-h-[80vh] flex items-center justify-center px-4 sm:px-6 lg:px-8"
+        className="grain min-h-[88vh] flex items-center justify-center px-4 sm:px-6 lg:px-8"
         style={{
           background: "linear-gradient(135deg, #0F1623 0%, #162032 50%, #1D2B42 100%)",
         }}
       >
         <div className="max-w-4xl mx-auto text-center">
           <AnimatedSection delay={0}>
-            <span className="text-sm uppercase tracking-widest text-primary font-medium mb-4 block">
-              {siteConfig.tagline}
-            </span>
-            <h1 className="font-[family-name:var(--font-libre)] text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight mb-6">
-              {siteConfig.name}
+            <div className="text-sm uppercase tracking-widest text-primary font-medium mb-4 block">
+              Professionally Managed Housing
+            </div>
+            <h1 className="font-[family-name:var(--font-libre)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight mb-4">
+              Second Chance Transitional Housing
             </h1>
-            <p className="text-muted text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
-              {siteConfig.description}
+            <p className="text-xl md:text-2xl text-primary font-semibold mb-4">
+              Safe &bull; Structured &bull; Affordable Living
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button href="/apply" size="lg">
+            <p className="text-muted text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-8">
+              Move-in ready shared bedrooms with utilities and Wi-Fi included. Professionally managed, felon-friendly housing designed to help you rebuild and thrive.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+              <Button href={`tel:${siteConfig.phoneResident.replace(/-/g, "")}`} size="lg">
+                <Phone size={18} className="mr-2" />
+                Resident Inquiries: {siteConfig.phoneResident}
+              </Button>
+              <Button href="/apply" variant="secondary" size="lg">
                 Apply Now
               </Button>
-              <Button href={`tel:${siteConfig.phoneResident}`} variant="secondary" size="lg">
-                Call Us
-              </Button>
             </div>
+            <div className="text-muted text-sm mb-4 space-x-1">
+              <Phone size={14} className="inline -mt-0.5" />
+              <a href={`tel:${siteConfig.phoneResident.replace(/-/g, "")}`} className="text-primary hover:text-primary-light transition-[color] duration-200">
+                {siteConfig.phoneResident}
+              </a>
+              <span className="text-muted">— Resident Inquiries</span>
+              <span className="text-muted px-1">|</span>
+              <Phone size={14} className="inline -mt-0.5" />
+              <a href={`tel:${siteConfig.phonePartner.replace(/-/g, "")}`} className="text-primary hover:text-primary-light transition-[color] duration-200">
+                {siteConfig.phonePartner}
+              </a>
+              <span className="text-muted">— Partner &amp; Referral Line</span>
+            </div>
+            <p className="text-muted text-sm italic">
+              Limited rooms available across our properties — call to confirm current openings.
+            </p>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* 2. What We Offer */}
+      {/* ===== TRUST STAT BAR ===== */}
+      <section className="bg-bg-card border-y border-border py-5 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-0 text-center">
+            <div className="flex items-center gap-2 sm:flex-1 sm:justify-center text-foreground font-medium">
+              <Building2 size={18} className="text-primary shrink-0" />
+              <span>5+ Properties Across Tampa Bay</span>
+            </div>
+            <div className="hidden sm:block w-px h-8 bg-border" />
+            <div className="flex items-center gap-2 sm:flex-1 sm:justify-center text-foreground font-medium">
+              <CheckCircle size={18} className="text-primary shrink-0" />
+              <span>Move-In Within Days</span>
+            </div>
+            <div className="hidden sm:block w-px h-8 bg-border" />
+            <div className="flex items-center gap-2 sm:flex-1 sm:justify-center text-foreground font-medium">
+              <Briefcase size={18} className="text-primary shrink-0" />
+              <span>Employment-Focused Program</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== PROGRAM FEATURES ===== */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-bg-surface">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <SectionHeader
-              label="Our Services"
-              title="What We Offer"
-              description="Everything you need to rebuild your life in one supportive environment."
+              label="What We Offer"
+              title="Program Features"
+              description="Everything you need for a stable, structured transition back to independent living."
               className="mb-12"
             />
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, i) => {
               const IconComponent = serviceIcons[service.icon as keyof typeof serviceIcons];
               return (
                 <AnimatedSection key={service.id} delay={i * 0.1}>
-                  <Card className="h-full">
-                    <div className="flex items-start gap-4">
-                      {IconComponent && (
-                        <div className="shrink-0 w-10 h-10 rounded-lg bg-primary-dim flex items-center justify-center">
-                          <IconComponent size={20} className="text-primary" />
-                        </div>
-                      )}
-                      <div>
-                        <h3 className="text-foreground font-semibold text-lg mb-2">
-                          {service.title}
-                        </h3>
-                        <p className="text-muted text-sm leading-relaxed">
-                          {service.description}
-                        </p>
+                  <Card className="h-full text-center">
+                    {IconComponent && (
+                      <div className="w-12 h-12 rounded-full bg-primary-dim flex items-center justify-center mx-auto mb-4">
+                        <IconComponent size={22} className="text-primary" />
                       </div>
-                    </div>
+                    )}
+                    <h4 className="text-foreground font-semibold text-base mb-2">
+                      {service.title}
+                    </h4>
+                    <p className="text-muted text-sm leading-relaxed">
+                      {service.description}
+                    </p>
                   </Card>
                 </AnimatedSection>
               );
@@ -114,112 +131,117 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. How It Works */}
+      {/* ===== HOUSING SNAPSHOT ===== */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-bg-deep">
         <div className="max-w-7xl mx-auto">
-          <AnimatedSection>
-            <SectionHeader
-              label="Process"
-              title="How It Works"
-              description="Getting into stable housing is simpler than you think. Here is what to expect."
-              className="mb-12"
-            />
-          </AnimatedSection>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {howItWorksSteps.map((step, i) => (
-              <AnimatedSection key={step.number} delay={i * 0.1}>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-primary font-[family-name:var(--font-libre)] mb-3">
-                    {step.number}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            {/* Pricing Card */}
+            <AnimatedSection delay={0}>
+              <Card className="h-full">
+                <div className="flex items-end justify-between mb-6">
+                  <h3 className="text-foreground font-semibold text-xl">Shared Room</h3>
+                  <div>
+                    <span className="text-3xl font-bold text-primary font-[family-name:var(--font-libre)]">
+                      {housing[0].price}
+                    </span>
+                    <span className="text-muted text-sm">{housing[0].pricePeriod}</span>
                   </div>
-                  <h3 className="text-foreground font-semibold text-lg mb-2">{step.title}</h3>
-                  <p className="text-muted text-sm leading-relaxed">{step.description}</p>
                 </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Housing Preview */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-bg-surface">
-        <div className="max-w-7xl mx-auto">
-          <AnimatedSection>
-            <SectionHeader
-              label="Housing"
-              title="Your New Home"
-              description="Move-in ready rooms with everything included from day one."
-              className="mb-12"
-            />
-          </AnimatedSection>
-          <AnimatedSection delay={0.1}>
-            <div className="max-w-lg mx-auto">
-              <Card className="text-center">
-                <div className="mb-2">
-                  <span className="text-sm uppercase tracking-wide text-muted font-medium">
-                    {housing[0].type}
-                  </span>
-                </div>
-                <div className="mb-6">
-                  <span className="text-3xl text-primary font-bold font-[family-name:var(--font-libre)]">
-                    {housing[0].price}
-                  </span>
-                  <span className="text-muted text-sm">{housing[0].pricePeriod}</span>
-                </div>
-                <ul className="text-left space-y-2 mb-6">
+                <ul className="space-y-3">
                   {housing[0].features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-muted text-sm">
+                    <li key={feature} className="flex items-center gap-3 text-muted text-sm">
                       <CheckCircle size={16} className="text-primary shrink-0" />
                       {feature}
                     </li>
                   ))}
                 </ul>
-                <div className="flex items-center justify-center gap-2 mb-6">
-                  <span className="w-2 h-2 rounded-full bg-success" />
-                  <span className="text-success text-sm font-medium">{housing[0].availability}</span>
-                </div>
-                <Button href="/housing" className="w-full">
-                  View Details
-                </Button>
               </Card>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
+            </AnimatedSection>
 
-      {/* 5. Stats / Trust Bar */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-bg-deep">
-        <div className="max-w-7xl mx-auto">
-          <AnimatedSection>
-            <SectionHeader
-              label="By the Numbers"
-              title="Trusted Housing, Real Results"
-              className="mb-12"
-            />
-          </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {stats.map((stat, i) => (
-              <AnimatedSection key={stat.label} delay={i * 0.1}>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-primary font-[family-name:var(--font-libre)] mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-muted text-sm">{stat.label}</div>
-                </div>
-              </AnimatedSection>
-            ))}
+            {/* Info + Image */}
+            <AnimatedSection delay={0.15}>
+              <div className="rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(15,22,35,0.5)] mb-6">
+                {/* Bedroom image — public/images/bedroom-shared.jpg */}
+                <img
+                  src="/images/bedroom-shared.jpg"
+                  alt="Blu Manor shared bedroom — two twin beds, dressers, and flat-screen TV"
+                  className="w-full h-auto block"
+                />
+              </div>
+              <p className="text-muted text-base leading-relaxed mb-5">
+                Fully furnished shared rooms with everything included — no hidden fees, no surprises. One simple rate so you can focus on rebuilding your life.
+              </p>
+              <Button href="/housing" variant="secondary">
+                View Full Details
+              </Button>
+            </AnimatedSection>
           </div>
         </div>
       </section>
 
-      {/* 6. Testimonials */}
+      {/* ===== WHO WE SERVE ===== */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-bg-surface">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <SectionHeader
-              label="Testimonials"
-              title="Stories of Change"
-              description="Hear from the people whose lives have been shaped by Blu Manor."
+              label="Our Community"
+              title="Who We Serve"
+              description="We provide housing solutions for individuals ready to take the next step toward stability and independence."
+              className="mb-12"
+            />
+          </AnimatedSection>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <AnimatedSection delay={0}>
+              <Card className="h-full text-center">
+                <div className="w-12 h-12 rounded-full bg-primary-dim flex items-center justify-center mx-auto mb-4">
+                  <BicepsFlexed size={22} className="text-primary" />
+                </div>
+                <h4 className="text-foreground font-semibold text-base mb-2">
+                  Employment-Focused Individuals
+                </h4>
+                <p className="text-muted text-sm leading-relaxed">
+                  Those who are actively working or committed to securing and maintaining employment.
+                </p>
+              </Card>
+            </AnimatedSection>
+            <AnimatedSection delay={0.1}>
+              <Card className="h-full text-center">
+                <div className="w-12 h-12 rounded-full bg-primary-dim flex items-center justify-center mx-auto mb-4">
+                  <ClipboardList size={22} className="text-primary" />
+                </div>
+                <h4 className="text-foreground font-semibold text-base mb-2">
+                  Individuals Under Supervision
+                </h4>
+                <p className="text-muted text-sm leading-relaxed">
+                  Residents on probation, parole, or pretrial who need stable, compliant housing.
+                </p>
+              </Card>
+            </AnimatedSection>
+            <AnimatedSection delay={0.2}>
+              <Card className="h-full text-center">
+                <div className="w-12 h-12 rounded-full bg-primary-dim flex items-center justify-center mx-auto mb-4">
+                  <Star size={22} className="text-primary" />
+                </div>
+                <h4 className="text-foreground font-semibold text-base mb-2">
+                  Those Committed to Change
+                </h4>
+                <p className="text-muted text-sm leading-relaxed">
+                  Anyone ready to follow structured guidelines and work toward long-term self-sufficiency.
+                </p>
+              </Card>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== TESTIMONIALS ===== */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-bg-deep">
+        <div className="max-w-7xl mx-auto">
+          <AnimatedSection>
+            <SectionHeader
+              label="Success Stories"
+              title="What Our Residents Say"
+              description="Hear from people who've experienced the Blu Manor difference."
               className="mb-12"
             />
           </AnimatedSection>
@@ -227,8 +249,11 @@ export default function HomePage() {
             {testimonials.map((testimonial, i) => (
               <AnimatedSection key={testimonial.id} delay={i * 0.1}>
                 <Card className="h-full flex flex-col">
+                  <p className="text-4xl text-primary font-[family-name:var(--font-libre)] leading-none mb-3">
+                    &ldquo;
+                  </p>
                   <p className="text-muted text-sm leading-relaxed mb-6 flex-1">
-                    &ldquo;{testimonial.quote}&rdquo;
+                    {testimonial.quote}
                   </p>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-primary-dim flex items-center justify-center shrink-0">
@@ -237,13 +262,13 @@ export default function HomePage() {
                       </span>
                     </div>
                     <div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
                         <span className="text-foreground text-sm font-medium">
                           {testimonial.name}
                         </span>
                         {testimonial.verified && (
                           <span className="text-xs bg-primary-dim text-primary px-2 py-0.5 rounded-full font-medium">
-                            Verified
+                            ✓ Verified Partner
                           </span>
                         )}
                       </div>
@@ -257,24 +282,91 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. CTA Section */}
-      <section className="grain py-20 px-4 sm:px-6 lg:px-8 bg-bg-deep">
+      {/* ===== REENTRY PROFESSIONALS ===== */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-bg-surface">
+        <div className="max-w-4xl mx-auto">
+          <AnimatedSection>
+            <div className="rounded-2xl border border-border bg-bg-card p-8 md:p-12 shadow-[0_4px_24px_rgba(15,22,35,0.4)]">
+              <span className="text-sm uppercase tracking-wide text-primary font-medium block mb-3">
+                For Reentry Professionals
+              </span>
+              <h2 className="font-[family-name:var(--font-libre)] text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-4">
+                Partnering With Reentry Professionals
+              </h2>
+              <p className="text-muted text-base leading-relaxed mb-8 max-w-2xl">
+                We work directly with probation and parole officers, case managers, and reentry organizations across Tampa Bay. Our structured program meets supervision compliance requirements — making us a trusted placement option for your clients.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button href="/partners">
+                  Submit a Referral
+                </Button>
+                <Button href={`tel:${siteConfig.phonePartner.replace(/-/g, "")}`} variant="secondary">
+                  <Phone size={16} className="mr-2" />
+                  Partner Line: {siteConfig.phonePartner}
+                </Button>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ===== FAQ ===== */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-bg-deep">
+        <div className="max-w-3xl mx-auto">
+          <AnimatedSection>
+            <SectionHeader
+              label="Common Questions"
+              title="Frequently Asked Questions"
+              className="mb-10"
+            />
+          </AnimatedSection>
+          <AnimatedSection delay={0.1}>
+            <FaqAccordion items={faq} />
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ===== CTA BANNER ===== */}
+      <section
+        className="grain py-20 px-4 sm:px-6 lg:px-8"
+        style={{
+          background: "linear-gradient(135deg, #0F1623 0%, #162032 50%, #1D2B42 100%)",
+        }}
+      >
         <div className="max-w-3xl mx-auto text-center">
           <AnimatedSection>
             <h2 className="font-[family-name:var(--font-libre)] text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-4">
-              Ready to Start Your Journey?
+              Ready to Take the Next Step?
             </h2>
             <p className="text-muted text-lg leading-relaxed mb-8">
-              A stable home is the first step. Take it today — apply online or call us to check
-              availability and get your questions answered.
+              Safe, structured, affordable housing is just a call or click away.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
               <Button href="/apply" size="lg">
-                Apply Now
+                Start Your Application
               </Button>
               <Button href="/contact" variant="secondary" size="lg">
                 Contact Us
               </Button>
+            </div>
+            <div className="text-muted text-sm space-x-1">
+              <a
+                href={`tel:${siteConfig.phoneResident.replace(/-/g, "")}`}
+                className="text-primary hover:text-primary-light transition-[color] duration-200 font-medium"
+              >
+                <Phone size={14} className="inline -mt-0.5 mr-1" />
+                {siteConfig.phoneResident}
+              </a>
+              <span className="text-muted">Resident Inquiries</span>
+              <span className="text-muted px-2">|</span>
+              <a
+                href={`tel:${siteConfig.phonePartner.replace(/-/g, "")}`}
+                className="text-primary hover:text-primary-light transition-[color] duration-200 font-medium"
+              >
+                <Phone size={14} className="inline -mt-0.5 mr-1" />
+                {siteConfig.phonePartner}
+              </a>
+              <span className="text-muted">Partner Line</span>
             </div>
           </AnimatedSection>
         </div>

@@ -1,41 +1,37 @@
 import type { Metadata } from "next";
 import {
   CheckCircle,
-  Check,
-  Wifi,
-  Tv,
-  Shirt,
-  Zap,
-  Bed,
-  Home,
+  MapPin,
+  Phone,
 } from "lucide-react";
-import { housing, siteConfig } from "@/lib/constants";
+import { siteConfig } from "@/lib/constants";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import Button from "@/components/ui/Button";
-import Card from "@/components/ui/Card";
 import SectionHeader from "@/components/ui/SectionHeader";
+import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Housing | Blu Manor — Affordable Transitional Housing Tampa Bay",
+  title: "Housing Locations — Transitional Housing Across Tampa Bay | Blu Manor",
   description:
-    "Move-in ready transitional housing in Tampa Bay. Furnished shared rooms at $750/month — all-inclusive with utilities, Wi-Fi, and laundry. Felon-friendly, available now.",
+    "Blu Manor operates 5+ transitional housing properties across the Tampa Bay area. Fully furnished shared rooms at $750/month, all utilities included. Felon-friendly and move-in ready.",
 };
 
 const amenities = [
-  { icon: Wifi, label: "Wi-Fi Included" },
-  { icon: Tv, label: "Flat-Screen TV" },
-  { icon: Shirt, label: "On-Site Laundry" },
-  { icon: Zap, label: "All Utilities" },
-  { icon: Bed, label: "Furnished Room" },
-  { icon: Home, label: "Move-In Ready" },
+  "Furnished shared room",
+  "Twin bed & dresser",
+  "Flat-screen TV",
+  "Utilities & Wi-Fi",
+  "On-site laundry",
 ];
 
-const eligibilityItems = [
-  "Adults 18 years of age or older",
-  "Must maintain employment or verified income",
-  "Must comply with all supervision requirements",
-  "Committed to following house rules and policies",
-  "Background check does not disqualify — felon-friendly",
+const feeSchedule = [
+  { item: "Shared Room Rate", details: "$750 per month" },
+  { item: "Utilities", details: "Included" },
+  { item: "Wi-Fi", details: "Included" },
+  { item: "Laundry", details: "On-site, Included" },
+  { item: "Payment Due", details: "On agreed-upon date each month" },
+  { item: "Late Fees", details: "May apply for late payments" },
+  { item: "Non-Payment", details: "May result in discharge from housing" },
 ];
 
 export default function HousingPage() {
@@ -46,170 +42,164 @@ export default function HousingPage() {
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none grain" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <AnimatedSection>
-            <span className="text-sm uppercase tracking-wide text-primary font-medium">
-              Safe &amp; Affordable
-            </span>
-            <h1 className="font-[family-name:var(--font-libre)] text-4xl md:text-5xl font-bold text-foreground tracking-tight mt-3 mb-4">
-              Our Housing
+            <h1 className="font-[family-name:var(--font-libre)] text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4">
+              Housing Options
             </h1>
-            <p className="text-muted text-lg max-w-2xl mx-auto leading-relaxed">
-              Move-in ready, all-inclusive transitional housing in Tampa Bay. A
-              stable, structured environment designed to help you rebuild.
-            </p>
+            <nav aria-label="Breadcrumb" className="flex items-center justify-center gap-2 text-sm text-muted">
+              <a href="/" className="hover:text-primary transition-[color] duration-200">Home</a>
+              <span>/</span>
+              <span className="text-foreground">Housing</span>
+            </nav>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Housing Listings */}
-      <section className="py-20 px-6">
+      {/* Section Header + Property Card */}
+      <section className="py-20 px-6 bg-bg-deep">
         <div className="max-w-5xl mx-auto">
           <AnimatedSection>
             <SectionHeader
-              label="Available Housing"
-              title="Find Your Room"
-              description="Choose from our available housing options. Each room is fully furnished and all-inclusive — no hidden fees."
+              label="What's Included"
+              title="Fully Furnished Shared Rooms"
+              description="Move-in ready rooms across the Tampa Bay area. $750/month, all-inclusive — no hidden fees, no surprises."
             />
+            <p className="text-center text-sm text-muted mt-4">
+              Call{" "}
+              <a
+                href={`tel:${siteConfig.phoneResident.replace(/-/g, "")}`}
+                className="text-primary font-semibold hover:text-primary-light transition-[color] duration-200"
+              >
+                {siteConfig.phoneResident}
+              </a>{" "}
+              to check current room availability.
+            </p>
           </AnimatedSection>
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-            {housing.map((option, index) => (
-              <AnimatedSection
-                key={option.id}
-                delay={index * 0.1}
-                className="md:col-span-2 max-w-2xl mx-auto w-full"
-              >
-                <Card className="p-8">
-                  {/* Availability Badge */}
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className="w-2 h-2 rounded-full bg-green-500 inline-block" />
-                    <span className="text-sm text-green-400">
-                      {option.availability}
-                    </span>
-                  </div>
+          {/* Property Card */}
+          <AnimatedSection delay={0.1} className="mt-12">
+            <div className="max-w-[480px] mx-auto rounded-xl bg-bg-card border border-border shadow-[0_4px_24px_rgba(15,22,35,0.4)] overflow-hidden">
+              {/* Card Image */}
+              <div className="relative w-full h-56 bg-bg-surface">
+                <Image
+                  src="/images/bedroom-shared.jpg"
+                  alt="Blu Manor — furnished shared room with twin beds"
+                  fill
+                  className="object-cover"
+                />
+              </div>
 
-                  {/* Price */}
-                  <div className="flex items-baseline gap-2 mb-2">
-                    <span className="text-4xl font-bold text-primary font-[family-name:var(--font-libre)]">
-                      {option.price}
-                    </span>
-                    <span className="text-lg text-muted">{option.pricePeriod}</span>
-                  </div>
+              {/* Card Body */}
+              <div className="p-6">
+                <h3 className="font-[family-name:var(--font-libre)] text-2xl font-bold text-foreground tracking-tight mb-1">
+                  Shared Room
+                </h3>
+                <p className="flex items-center gap-1.5 text-sm text-muted mb-3">
+                  <MapPin size={14} className="text-primary shrink-0" />
+                  Tampa Bay Area, FL
+                </p>
+                <p className="text-muted text-sm leading-relaxed mb-5">
+                  Structured, supportive housing with everything you need from day one. Close to employment corridors, public transit, and supervision offices.
+                </p>
 
-                  {/* Room Type */}
-                  <h2 className="font-[family-name:var(--font-libre)] text-2xl font-bold text-foreground tracking-tight mb-6">
-                    {option.type}
-                  </h2>
+                <ul className="space-y-2 mb-6">
+                  {amenities.map((amenity) => (
+                    <li key={amenity} className="flex items-center gap-2.5 text-sm text-foreground">
+                      <CheckCircle size={16} className="text-primary shrink-0" />
+                      {amenity}
+                    </li>
+                  ))}
+                </ul>
 
-                  {/* Features List */}
-                  <ul className="space-y-3 mb-8">
-                    {option.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-3">
-                        <CheckCircle
-                          className="text-primary shrink-0 mt-0.5"
-                          size={18}
-                        />
-                        <span className="text-foreground">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Apply CTA */}
-                  <Button href="/apply" size="lg" className="w-full sm:w-auto">
-                    Apply Now
-                  </Button>
-                </Card>
-              </AnimatedSection>
-            ))}
-          </div>
+                <div className="border-t border-border pt-5">
+                  <p className="text-foreground font-semibold mb-4">
+                    <span className="text-2xl font-bold text-primary font-[family-name:var(--font-libre)]">$750</span>
+                    /month — All Inclusive
+                  </p>
+                  <a
+                    href={`tel:${siteConfig.phoneResident.replace(/-/g, "")}`}
+                    className="flex items-center justify-center gap-2 w-full bg-primary text-bg-deep font-semibold px-6 py-3 rounded-lg hover:bg-primary-light hover:-translate-y-0.5 transition-[color,background-color,transform] duration-200"
+                  >
+                    <Phone size={16} />
+                    Check Availability
+                  </a>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* What's Included */}
+      {/* Fee Schedule */}
       <section className="py-20 px-6 bg-bg-surface">
         <div className="max-w-5xl mx-auto">
           <AnimatedSection>
             <SectionHeader
-              label="All-Inclusive"
-              title="Everything You Need"
-              description="Your $750/month covers everything — no surprise bills, no nickel-and-diming. Move in and focus on what matters."
+              label="Transparent Pricing"
+              title="Fee Schedule"
+              description="No hidden costs. Here's exactly what you can expect."
             />
           </AnimatedSection>
 
           <AnimatedSection delay={0.1} className="mt-12">
-            <p className="text-muted text-center max-w-2xl mx-auto leading-relaxed mb-10">
-              Every room at Blu Manor includes all utilities, high-speed Wi-Fi,
-              furnishings, a flat-screen TV, and access to our on-site laundry
-              facilities. You just bring yourself and your essentials.
-            </p>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 mt-4">
-            {amenities.map(({ icon: Icon, label }, index) => (
-              <AnimatedSection key={label} delay={0.1 + index * 0.05}>
-                <div className="flex flex-col items-center gap-3 p-6 rounded-xl bg-bg-card border border-border text-center hover:border-border-hover transition-[border-color] duration-300">
-                  <Icon className="text-primary" size={28} />
-                  <span className="text-sm text-foreground font-medium">
-                    {label}
-                  </span>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Eligibility */}
-      <section className="py-20 px-6">
-        <div className="max-w-3xl mx-auto">
-          <AnimatedSection>
-            <SectionHeader
-              label="Eligibility"
-              title="Who Qualifies"
-              description="We believe in second chances. Our criteria is straightforward — we look for commitment, not perfection."
-            />
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.1}>
-            <ul className="mt-10 space-y-4">
-              {eligibilityItems.map((item, index) => (
-                <li
-                  key={index}
-                  className="flex items-start gap-3 p-4 rounded-lg bg-bg-card border border-border"
-                >
-                  <Check
-                    className="text-primary shrink-0 mt-0.5"
-                    size={18}
-                  />
-                  <span className="text-foreground leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="max-w-[700px] mx-auto overflow-x-auto">
+              <table className="w-full border-collapse rounded-xl overflow-hidden">
+                <thead>
+                  <tr className="bg-bg-card border border-border">
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-foreground uppercase tracking-wide">
+                      Item
+                    </th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-foreground uppercase tracking-wide">
+                      Details
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {feeSchedule.map((row, index) => (
+                    <tr
+                      key={row.item}
+                      className={
+                        index % 2 === 0
+                          ? "bg-bg-deep border-x border-border"
+                          : "bg-bg-card border-x border-border"
+                      }
+                    >
+                      <td className="px-6 py-4 text-sm font-semibold text-foreground border-b border-border">
+                        {row.item}
+                      </td>
+                      <td className="px-6 py-4 text-sm text-muted border-b border-border">
+                        {row.details}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative py-20 px-6 bg-bg-surface overflow-hidden">
+      {/* CTA Banner */}
+      <section className="relative py-20 px-6 bg-bg-deep overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none grain" />
         <div className="relative z-10 max-w-2xl mx-auto text-center">
           <AnimatedSection>
             <h2 className="font-[family-name:var(--font-libre)] text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-4">
-              Ready to Apply?
+              Ready to Move In?
             </h2>
             <p className="text-muted text-lg mb-8">
-              Rooms are move-in ready. Start your application today or call us
-              to check current availability.
+              Rooms are move-in ready. Apply today or call for availability.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button href="/apply" size="lg">
                 Apply Now
               </Button>
               <Button
-                href={`tel:${siteConfig.phoneResident}`}
+                href={`tel:${siteConfig.phoneResident.replace(/-/g, "")}`}
                 variant="secondary"
                 size="lg"
               >
-                Call Us
+                <Phone size={18} className="mr-2" />
+                Call {siteConfig.phoneResident}
               </Button>
             </div>
           </AnimatedSection>
