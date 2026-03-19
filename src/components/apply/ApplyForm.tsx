@@ -9,7 +9,7 @@ import { siteConfig } from "@/lib/constants";
 // Google Apps Script endpoint
 // ---------------------------------------------------------------
 const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbxzS_gN5TDENqlAD9tJjgAUVLPOhLXuB4KPNBR3Rm5dGltZLjCVXZL7JkPvPjFkSjqg/exec";
+  "https://script.google.com/macros/s/AKfycbyAGohOTYu96rDRWgylkdlCL0clrjcBmlAzEhROw-N_S5PVkpnB-GyPSihKRgIINWSt/exec";
 
 // ---------------------------------------------------------------
 // Shared style tokens
