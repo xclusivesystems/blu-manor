@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Blu Manor | Felon-Friendly Transitional Housing in Tampa Bay, FL",
   description:
     "Safe, structured, and affordable transitional housing for individuals reentering the community in Tampa Bay, FL. Felon-friendly, move-in ready, rooms starting at $750/month all-inclusive. Private rooms available. Call 727-563-6540.",
+  alternates: { canonical: "/" },
 };
 
 const serviceIcons = {

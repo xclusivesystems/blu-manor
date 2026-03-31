@@ -18,9 +18,13 @@ const sourceSans3 = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://blumanor.org"),
   title: "Blu Manor | Second Chance Transitional Housing",
   description:
     "Blu Manor provides safe, felon-friendly transitional housing in the Tampa Bay area. We help individuals reenter the community with dignity through stable housing, employment support, and supervision compliance.",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function SiteLayout({

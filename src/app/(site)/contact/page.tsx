@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Contact Us — Blu Manor Transitional Housing",
   description:
     "Contact Blu Manor for housing inquiries or partner referrals. Resident line: 727-563-6540. Partner & referral line: 727-710-6930.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

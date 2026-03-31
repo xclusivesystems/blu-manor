@@ -23,6 +23,7 @@ export const metadata: Metadata = {
   title: "Resources & Documents | Resident Handbook & Forms | Blu Manor",
   description:
     "Download Blu Manor's resident handbook, house rules, application forms, and partner packets. Employment, education, and mental health resources.",
+  alternates: { canonical: "/resources" },
 };
 
 export default function ResourcesPage() {

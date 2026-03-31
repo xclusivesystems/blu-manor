@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Apply for Housing — Blu Manor Tampa Bay",
   description:
     "Apply for transitional housing at Blu Manor. Move-in ready rooms available across Tampa Bay. Felon-friendly, $750/month all-inclusive.",
+  alternates: { canonical: "/apply" },
 };
 
 const steps = [

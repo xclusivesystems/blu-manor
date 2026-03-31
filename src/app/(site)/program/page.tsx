@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   title: "Our Program — Structure, Support & Accountability | Blu Manor",
   description:
     "Blu Manor's structured reentry program promotes employment, supervision compliance, and long-term stability. Learn what to expect as a resident.",
+  alternates: { canonical: "/program" },
 };
 
 const houseRules = [

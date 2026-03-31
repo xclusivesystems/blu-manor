@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "For Reentry Professionals — Partner With Blu Manor",
   description:
     "Probation officers, parole officers, and case managers: partner with Blu Manor to place clients in structured, supervision-compliant transitional housing across Tampa Bay.",
+  alternates: { canonical: "/partners" },
 };
 
 export default function PartnersPage() {

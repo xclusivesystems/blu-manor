@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "Housing Locations — Transitional Housing Across Tampa Bay | Blu Manor",
   description:
     "Blu Manor operates 5+ transitional housing properties across the Tampa Bay area. Fully furnished shared rooms at $750/month, all utilities included. Felon-friendly and move-in ready.",
+  alternates: { canonical: "/housing" },
 };
 
 const amenities = [
