@@ -13,7 +13,7 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "Housing Locations — Transitional Housing Across Tampa Bay | Blu Manor",
   description:
-    "Blu Manor operates 5+ transitional housing properties across the Tampa Bay area. Fully furnished shared rooms at $750/month, all utilities included. Felon-friendly and move-in ready.",
+    "Blu Manor operates 5+ transitional housing properties across the Tampa Bay area. Fully furnished shared rooms at $850/month, all utilities included. Felon-friendly and move-in ready.",
   alternates: { canonical: "/housing" },
 };
 
@@ -26,7 +26,7 @@ const amenities = [
 ];
 
 const feeSchedule = [
-  { item: "Shared Room Rate", details: "Starting at $750 per month" },
+  { item: "Shared Room Rate", details: "Starting at $850 per month" },
   { item: "Utilities", details: "Included" },
   { item: "Wi-Fi", details: "Included" },
   { item: "Laundry", details: "On-site, Included" },
@@ -62,7 +62,7 @@ export default function HousingPage() {
             <SectionHeader
               label="What's Included"
               title="Fully Furnished Rooms"
-              description="Shared and private rooms starting at $750/month across the Tampa Bay area. All-inclusive — no hidden fees, no surprises."
+              description="Shared rooms start at $850/month across the Tampa Bay area. All-inclusive — no hidden fees, no surprises. Private room pricing available by request."
             />
             <p className="text-center text-sm text-muted mt-4">
               Call{" "}
@@ -113,7 +113,7 @@ export default function HousingPage() {
 
                 <div className="border-t border-border pt-5">
                   <p className="text-foreground font-semibold mb-4">
-                    <span className="text-2xl font-bold text-primary font-[family-name:var(--font-libre)]">$750</span>
+                    <span className="text-2xl font-bold text-primary font-[family-name:var(--font-libre)]">$850</span>
                     /month — All Inclusive
                   </p>
                   <a

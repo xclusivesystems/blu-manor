@@ -9,7 +9,7 @@ import { siteConfig } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "About Us — Second Chance Housing in Tampa Bay, FL | Blu Manor",
   description:
-    "Learn about Blu Manor's mission to provide safe, structured transitional housing for individuals reentering the Tampa Bay community. Employment-focused, supervision-compliant.",
+    "Learn about Blu Manor's mission to provide safe, structured transitional housing for men and women reentering the Tampa Bay community. Employment-focused, supervision-compliant.",
   alternates: { canonical: "/about" },
 };
 
@@ -73,7 +73,7 @@ export default function AboutPage() {
           <AnimatedSection delay={0.1}>
             <div className="max-w-3xl mx-auto text-center space-y-5">
               <p className="text-lg text-muted leading-[1.9]">
-                Our mission is to provide safe, structured, and affordable housing for individuals reentering the community. We promote accountability, employment readiness, and long-term stability in a supportive environment.
+                Our mission is to provide safe, structured, and affordable housing for men and women reentering the community. We promote accountability, employment readiness, and long-term stability in a supportive environment.
               </p>
               <p className="text-base text-muted leading-[1.9]">
                 At Blu Manor, we understand that a stable home is the foundation for everything else — keeping a job, meeting supervision requirements, and building a better future. We provide that foundation with professionalism, compassion, and clear expectations.

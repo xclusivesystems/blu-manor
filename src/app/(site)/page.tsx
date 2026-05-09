@@ -10,7 +10,7 @@ import { siteConfig, services, housing, testimonials, faq } from "@/lib/constant
 export const metadata: Metadata = {
   title: "Blu Manor | Felon-Friendly Transitional Housing in Tampa Bay, FL",
   description:
-    "Safe, structured, and affordable transitional housing for individuals reentering the community in Tampa Bay, FL. Felon-friendly, move-in ready, rooms starting at $750/month all-inclusive. Private rooms available. Call 727-563-6540.",
+    "Safe, structured, and affordable transitional housing for men and women reentering the community in Tampa Bay, FL. Felon-friendly, move-in ready, shared rooms starting at $850/month all-inclusive. Private rooms available. Call 727-563-6540.",
   alternates: { canonical: "/" },
 };
 
@@ -43,7 +43,7 @@ export default function HomePage() {
               Safe &bull; Structured &bull; Affordable Living
             </p>
             <p className="text-muted text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-8">
-              Shared and private rooms starting at $750/month with utilities and Wi-Fi included. Professionally managed, felon-friendly housing designed to help you rebuild and thrive.
+              Shared rooms starting at $850/month with utilities and Wi-Fi included. Professionally managed, felon-friendly housing designed to help men and women rebuild and thrive.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
               <Button href={`tel:${siteConfig.phoneResident.replace(/-/g, "")}`} size="lg">
@@ -138,7 +138,7 @@ export default function HomePage() {
           <AnimatedSection>
             <SectionHeader
               label="Housing"
-              title="Rooms Starting at $750/month"
+              title="Shared Rooms Starting at $850/month"
               description="Shared and private rooms available — fully furnished with everything included. No hidden fees, no surprises."
               className="mb-12"
             />

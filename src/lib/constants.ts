@@ -76,7 +76,7 @@ export const siteConfig: SiteConfig = {
   name: "Blu Manor",
   tagline: "Second Chance Transitional Housing",
   description:
-    "Safe, structured, and affordable transitional housing for individuals reentering the community in Tampa Bay, FL. Felon-friendly, move-in ready, $750/month all-inclusive.",
+    "Safe, structured, and affordable transitional housing for men and women reentering the community in Tampa Bay, FL. Felon-friendly, move-in ready, $850/month all-inclusive for shared rooms.",
   url: "https://blumanor.org",
   email: "info@blumanor.org",
   phoneResident: "727-563-6540",
@@ -143,7 +143,7 @@ export const housing: HousingOption[] = [
   {
     id: "shared-room",
     type: "Shared Room",
-    price: "$750",
+    price: "$850",
     pricePeriod: "/month",
     features: [
       "Two twin beds",
@@ -236,10 +236,10 @@ export const faq: FaqItem[] = [
   {
     question: "Who is eligible to live at Blu Manor?",
     answer:
-      "We welcome adults 18 and older who are committed to maintaining employment or verified income, following house rules, and working toward stability. We are felon-friendly and work with individuals on probation, parole, or pretrial supervision.",
+      "We welcome adults 18 and older, including men and women, who are committed to maintaining employment or verified income, following house rules, and working toward stability. We are felon-friendly and work with individuals on probation, parole, or pretrial supervision.",
   },
   {
-    question: "What does the $750/month include?",
+    question: "What does the $850/month shared room rate include?",
     answer:
       "Your monthly rate covers a fully furnished shared room (twin bed, dresser, flat-screen TV), all utilities, Wi-Fi, and access to on-site laundry. There are no hidden fees — everything is included in one simple payment.",
   },
@@ -282,7 +282,7 @@ export interface AboutContent {
 
 export const aboutContent: AboutContent = {
   mission:
-    "Blu Manor provides safe, structured, and affordable transitional housing for individuals reentering the community. We believe everyone deserves a second chance and a stable foundation to rebuild their lives.",
+    "Blu Manor provides safe, structured, and affordable transitional housing for men and women reentering the community. We believe everyone deserves a second chance and a stable foundation to rebuild their lives.",
   story:
     "Founded in the Tampa Bay area, Blu Manor was created to fill a critical gap in transitional housing for individuals with criminal backgrounds. Traditional housing options often close their doors to those who need support the most. We opened ours. Our properties offer more than just a roof — they provide structure, accountability, and a community of people working toward the same goal: a fresh start.",
   values: [
