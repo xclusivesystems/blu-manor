@@ -10,8 +10,8 @@ import { siteConfig, services, housing, testimonials, faq } from "@/lib/constant
 export const metadata: Metadata = {
   title: "Blu Manor | Felon-Friendly Transitional Housing in Tampa Bay, FL",
   description:
-    "Safe, structured, and affordable transitional housing for men and women reentering the community in Tampa Bay, FL. Felon-friendly, move-in ready, shared rooms starting at $850/month all-inclusive. Private rooms available. Call 727-563-6540.",
-  alternates: { canonical: "/" },
+    "Felon-friendly transitional housing in Tampa Bay, FL. Safe, structured, move-in ready rooms for men and women reentering the community.",
+  alternates: { canonical: "https://www.blumanor.org/" },
 };
 
 const serviceIcons = {
