@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { type ReactNode, useState, useEffect } from "react";
+import { type ReactNode } from "react";
 
 interface AnimatedSectionProps {
   children: ReactNode;
@@ -15,14 +15,9 @@ export default function AnimatedSection({
   className,
 }: AnimatedSectionProps) {
   const prefersReduced = useReducedMotion();
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Before hydration or if reduced motion: render visible, no animation
-  if (!mounted || prefersReduced) {
+  // If reduced motion is preferred, render visible with no animation.
+  if (prefersReduced) {
     return <div className={className}>{children}</div>;
   }
 

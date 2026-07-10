@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
   Circle,
   Clock,
@@ -121,7 +122,7 @@ export default function ProgramPage() {
               Program Details &amp; Policies
             </h1>
             <nav aria-label="Breadcrumb" className="flex items-center justify-center gap-2 text-sm text-muted">
-              <a href="/" className="hover:text-primary transition-[color] duration-200">Home</a>
+              <Link href="/" className="hover:text-primary transition-[color] duration-200">Home</Link>
               <span>/</span>
               <span className="text-foreground">Program</span>
             </nav>

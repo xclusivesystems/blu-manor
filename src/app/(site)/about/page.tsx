@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Shield, Scale, HandHeart, Home, BicepsFlexed, ClipboardList, Star, User } from "lucide-react";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import Button from "@/components/ui/Button";
@@ -52,7 +53,7 @@ export default function AboutPage() {
               About Blu Manor
             </h1>
             <nav className="flex items-center justify-center gap-2 text-sm text-muted" aria-label="Breadcrumb">
-              <a href="/" className="hover:text-primary transition-[color] duration-200">Home</a>
+              <Link href="/" className="hover:text-primary transition-[color] duration-200">Home</Link>
               <span>/</span>
               <span>About</span>
             </nav>
