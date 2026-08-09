@@ -1,40 +1,99 @@
-import { siteConfig, faq } from "@/lib/constants";
+import { siteConfig, faq, housing } from "@/lib/constants";
 
 /**
- * LocalBusiness + FAQPage structured data.
+ * Organization + Service + FAQPage structured data.
  *
- * The legacy root `index.html` carried both of these. The Next rebuild dropped
- * them, so the live site served zero JSON-LD and lost every rich result it had.
- * This restores them from `constants.ts` rather than from that old file, so the
- * markup can never disagree with the copy the page actually renders — the FAQ
- * text had already diverged between the two ("including men and women" was
- * added to the eligibility answer after the rebuild).
+ * The legacy root `index.html` carried LocalBusiness and FAQPage. The Next
+ * rebuild dropped them, so the live site served zero JSON-LD and lost every
+ * rich result it had. This restores them from `constants.ts` rather than from
+ * that old file, so the markup can never disagree with the copy the page
+ * actually renders — the FAQ text had already diverged between the two
+ * ("including men and women" was added to the eligibility answer post-rebuild).
  *
- * Three claims from the legacy markup are deliberately NOT restored, because
- * nothing on the current site supports them and schema must not assert more
- * than the page does:
+ * NOT `LocalBusiness`, deliberately. That type models a business customers
+ * visit, and Google pairs it with a street address and opening hours. Blu Manor
+ * is a for-profit business, but not that shape of one: it is housing people
+ * live in, reached by phone and referral, across 5+ properties. `Organization`
+ * is the honest parent type. It is also NOT `NGO` — that asserts registered
+ * charitable status, and this is for-profit.
  *
- *   - `openingHoursSpecification` (Mon–Fri 9–6, Sat 10–2). Business hours
- *     appear nowhere in this codebase. Publishing hours nobody confirmed is
- *     how a visitor arrives at a locked door.
- *   - `geo` coordinates (27.9506, -82.4572). That is a generic downtown-Tampa
- *     point, not a property. `siteConfig.address` is still flagged in
- *     constants.ts as a placeholder pending exact addresses from the client.
- * `logo` and `image` now point at `/img/`, not the legacy `/images/` the old
- * markup used — the rebuild moved that directory, so both old URLs 404'd.
+ * Two claims from the legacy markup are deliberately NOT restored, and neither
+ * is pending anything:
  *
- * The OG image was rebuilt rather than restored: the legacy PNG read
- * "$750/month All-Inclusive" and the real rate is $850, so reinstating it would
- * have put a stale price on every social share. The replacement carries no
- * price at all, because a static PNG cannot track one — the same drift that
- * made this file necessary in the first place.
+ *   - `openingHoursSpecification` (Mon–Fri 9–6, Sat 10–2). **Never add these.**
+ *     There are no opening hours. The legacy markup modelled a storefront and
+ *     that was simply wrong.
+ *   - `geo` coordinates (27.9506, -82.4572). A generic downtown-Tampa point,
+ *     not a property. With 5+ properties across Tampa Bay no single coordinate
+ *     can be correct — and for reentry housing, resident privacy is a reason
+ *     NOT to publish exact locations, not a detail awaiting the client. Treat
+ *     `siteConfig.address`'s "Tampa Bay Area, FL" as the intended answer.
  *
- * Add hours and geo here once the client confirms them.
+ * `logo` and `image` point at `/img/`, not the legacy `/images/` — the rebuild
+ * moved that directory, so both old URLs 404'd. The OG image was rebuilt rather
+ * than restored: the legacy PNG read "$750/month All-Inclusive" when the real
+ * rate is $850.
  */
+
+const AREA_SERVED = [
+  "Tampa, FL",
+  "St. Petersburg, FL",
+  "Clearwater, FL",
+  "Bradenton, FL",
+  "Hillsborough County, FL",
+  "Pinellas County, FL",
+];
+
+// "Available" / "Limited" in constants.ts -> schema.org ItemAvailability.
+const AVAILABILITY: Record<string, string> = {
+  Available: "https://schema.org/InStock",
+  Limited: "https://schema.org/LimitedAvailability",
+};
+
+/**
+ * One Offer per room type, generated from `housing`.
+ *
+ * A price is emitted ONLY when the constants hold a real number. The private
+ * room is "Call" / " for pricing", and inventing a figure for it — or copying
+ * the shared-room rate across — would be exactly the fabrication this markup
+ * exists to avoid. Such an offer carries availability and inclusions only.
+ */
+function offersFromHousing() {
+  return housing.map((room) => {
+    const amount = room.price.replace(/[^0-9.]/g, "");
+    const offer: Record<string, unknown> = {
+      "@type": "Offer",
+      name: room.type,
+      itemOffered: {
+        "@type": "Accommodation",
+        name: room.type,
+        amenityFeature: room.features.map((f) => ({
+          "@type": "LocationFeatureSpecification",
+          name: f,
+          value: true,
+        })),
+      },
+    };
+    if (amount) {
+      offer.priceCurrency = "USD";
+      offer.priceSpecification = {
+        "@type": "UnitPriceSpecification",
+        price: amount,
+        priceCurrency: "USD",
+        unitCode: "MON", // per month
+        unitText: "month",
+      };
+    }
+    const availability = AVAILABILITY[room.availability];
+    if (availability) offer.availability = availability;
+    return offer;
+  });
+}
+
 export default function JsonLd() {
-  const localBusiness = {
+  const organization = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "Organization",
     name: siteConfig.name,
     description: siteConfig.description,
     url: siteConfig.url,
@@ -53,15 +112,33 @@ export default function JsonLd() {
       addressRegion: "FL",
       addressCountry: "US",
     },
-    areaServed: [
-      "Tampa, FL",
-      "St. Petersburg, FL",
-      "Clearwater, FL",
-      "Bradenton, FL",
-      "Hillsborough County, FL",
-      "Pinellas County, FL",
-    ],
-    priceRange: "$850/month",
+    areaServed: AREA_SERVED,
+  };
+
+  // What the organisation actually offers. This is the block that answers
+  // "reentry housing Tampa" for an AI search engine, which is how this
+  // audience finds the site — so the eligibility and terms are stated here
+  // rather than left implicit in the FAQ.
+  const service = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Second Chance Transitional Housing",
+    serviceType: "Transitional housing",
+    description:
+      "Furnished, all-inclusive transitional housing for adults reentering the community. " +
+      "Felon-friendly, move-in ready, month-to-month with no long-term lease required.",
+    provider: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    areaServed: AREA_SERVED,
+    audience: {
+      "@type": "Audience",
+      audienceType:
+        "Adults 18 and older reentering the community, including individuals on probation, parole, or pretrial supervision",
+    },
+    offers: offersFromHousing(),
   };
 
   const faqPage = {
@@ -81,7 +158,11 @@ export default function JsonLd() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(service) }}
       />
       <script
         type="application/ld+json"

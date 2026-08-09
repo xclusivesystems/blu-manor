@@ -2,7 +2,10 @@
 
 ## Business
 - **Name:** Blu Manor — Second Chance Transitional Housing
-- **Industry:** Transitional Housing / Nonprofit
+- **Industry:** Transitional Housing — **for-profit** (corrected 2026-08-09; this
+  file previously said "Nonprofit", which is wrong. It matters: asserting
+  charitable status in schema.org markup or grant/directory listings would be a
+  false claim, and the `.org` domain invites that mistake.)
 - **Domain:** blumanor.org
 - **Email:** info@blumanor.org (Google Workspace — pending setup)
 - **Location:** Florida
