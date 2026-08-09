@@ -4,6 +4,8 @@ import "../globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MobileCtaBar from "@/components/layout/MobileCtaBar";
+import JsonLd from "@/components/seo/JsonLd";
+import Analytics from "@/components/seo/Analytics";
 
 const libreBaskerville = Libre_Baskerville({
   variable: "--font-libre",
@@ -37,6 +39,8 @@ export default function SiteLayout({
       <body
         className={`${libreBaskerville.variable} ${sourceSans3.variable} antialiased`}
       >
+        <JsonLd />
+        <Analytics />
         <Header />
         <main className="min-h-screen pt-[72px] pb-20 md:pb-0">{children}</main>
         <Footer />

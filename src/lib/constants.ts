@@ -17,7 +17,6 @@ export interface SiteConfig {
   phoneResident: string;
   phonePartner: string;
   address: string;
-  ga4Id: string;
 }
 
 export interface NavLink {
@@ -82,7 +81,9 @@ export const siteConfig: SiteConfig = {
   phoneResident: "727-563-6540",
   phonePartner: "727-710-6930",
   address: "Tampa Bay Area, FL", // Placeholder — exact addresses pending from client
-  ga4Id: "G-H8JCFW9RRT",
+  // ga4Id removed: the measurement id now comes from NEXT_PUBLIC_GA_ID (see
+  // components/seo/Analytics.tsx and .env.example). It sat here unused after
+  // the rebuild dropped the gtag snippet, so the site recorded nothing.
 };
 
 // ============================================================
