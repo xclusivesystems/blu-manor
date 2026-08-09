@@ -76,7 +76,12 @@ export const siteConfig: SiteConfig = {
   tagline: "Second Chance Transitional Housing",
   description:
     "Safe, structured, and affordable transitional housing for men and women reentering the community in Tampa Bay, FL. Felon-friendly, move-in ready, $850/month all-inclusive for shared rooms.",
-  url: "https://blumanor.org",
+  // www, matching the canonical host every other surface already declares:
+  // sitemap.ts BASE, robots.ts host + sitemap, layout metadataBase and both
+  // <link rel="canonical"> tags. This was the one outlier saying apex, and it
+  // is what JsonLd.tsx builds the schema `url`/`logo`/`image` from — so the
+  // structured data was pointing at a different host than the canonical tag.
+  url: "https://www.blumanor.org",
   email: "info@blumanor.org",
   phoneResident: "727-563-6540",
   phonePartner: "727-710-6930",

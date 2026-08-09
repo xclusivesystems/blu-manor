@@ -20,12 +20,16 @@ import { siteConfig, faq } from "@/lib/constants";
  *   - `geo` coordinates (27.9506, -82.4572). That is a generic downtown-Tampa
  *     point, not a property. `siteConfig.address` is still flagged in
  *     constants.ts as a placeholder pending exact addresses from the client.
- *   - `image: /images/og-image.png` and `logo: /images/logo.png`. The rebuild
- *     moved `images/` to `img/` and dropped the OG image entirely, so both
- *     URLs 404. Only the logo survives, at its real path.
+ * `logo` and `image` now point at `/img/`, not the legacy `/images/` the old
+ * markup used — the rebuild moved that directory, so both old URLs 404'd.
  *
- * Add hours and geo here once the client confirms them, and `image` once an OG
- * image exists.
+ * The OG image was rebuilt rather than restored: the legacy PNG read
+ * "$750/month All-Inclusive" and the real rate is $850, so reinstating it would
+ * have put a stale price on every social share. The replacement carries no
+ * price at all, because a static PNG cannot track one — the same drift that
+ * made this file necessary in the first place.
+ *
+ * Add hours and geo here once the client confirms them.
  */
 export default function JsonLd() {
   const localBusiness = {
@@ -35,6 +39,7 @@ export default function JsonLd() {
     description: siteConfig.description,
     url: siteConfig.url,
     logo: `${siteConfig.url}/img/logo.png`,
+    image: `${siteConfig.url}/img/og-image.png`,
     email: siteConfig.email,
     // E.164, as the legacy markup had it — Google matches a business far more
     // reliably on +1XXXXXXXXXX than on a display-formatted number. Derived from

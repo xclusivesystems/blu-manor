@@ -27,6 +27,33 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.blumanor.org/",
   },
+  // The rebuild shipped with no OG tags at all, so every share of this site —
+  // including the referral links partners and supervision officers pass around
+  // — rendered as a bare URL with no card. Paths are relative so metadataBase
+  // resolves them against the www canonical.
+  openGraph: {
+    type: "website",
+    siteName: "Blu Manor",
+    title: "Blu Manor | Second Chance Transitional Housing",
+    description:
+      "Safe, structured, felon-friendly transitional housing in the Tampa Bay area. Move-in ready rooms, all utilities included.",
+    url: "https://www.blumanor.org/",
+    images: [
+      {
+        url: "/img/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Blu Manor — Second Chance Transitional Housing, Tampa Bay, FL",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blu Manor | Second Chance Transitional Housing",
+    description:
+      "Safe, structured, felon-friendly transitional housing in the Tampa Bay area.",
+    images: ["/img/og-image.png"],
+  },
 };
 
 export default function SiteLayout({
