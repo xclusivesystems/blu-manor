@@ -8,7 +8,7 @@ import FaqAccordion from "@/components/resources/FaqAccordion";
 import { siteConfig, services, housing, testimonials, faq } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Blu Manor | Felon-Friendly Transitional Housing in Tampa Bay, FL",
+  title: "Blu Manor | Felon-Friendly Transitional Housing, Tampa Bay",
   description:
     "Felon-friendly transitional housing in Tampa Bay, FL. Safe, structured, move-in ready rooms for men and women reentering the community.",
   alternates: { canonical: "https://www.blumanor.org/" },
